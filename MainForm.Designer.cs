@@ -54,7 +54,6 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PackageLengthTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.headerLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.ErrorSequenceModelGroupBox.SuspendLayout();
@@ -144,11 +143,10 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.headerLabel);
             this.splitContainer1.Panel2.Controls.Add(this.BitsSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.IntervalSequenceLabel);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(8);
-            this.splitContainer1.Size = new System.Drawing.Size(861, 120);
+            this.splitContainer1.Size = new System.Drawing.Size(861, 85);
             this.splitContainer1.SplitterDistance = 231;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 11;
@@ -157,7 +155,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 11F);
-            this.label3.Location = new System.Drawing.Point(4, 40);
+            this.label3.Location = new System.Drawing.Point(4, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(216, 18);
@@ -168,7 +166,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 11F);
-            this.label2.Location = new System.Drawing.Point(4, 70);
+            this.label2.Location = new System.Drawing.Point(4, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(224, 18);
@@ -179,7 +177,7 @@
             // 
             this.BitsSequenceLabel.AutoSize = true;
             this.BitsSequenceLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.BitsSequenceLabel.Location = new System.Drawing.Point(12, 40);
+            this.BitsSequenceLabel.Location = new System.Drawing.Point(12, 8);
             this.BitsSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BitsSequenceLabel.Name = "BitsSequenceLabel";
             this.BitsSequenceLabel.Size = new System.Drawing.Size(72, 18);
@@ -190,7 +188,7 @@
             // 
             this.IntervalSequenceLabel.AutoSize = true;
             this.IntervalSequenceLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.IntervalSequenceLabel.Location = new System.Drawing.Point(12, 70);
+            this.IntervalSequenceLabel.Location = new System.Drawing.Point(12, 38);
             this.IntervalSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IntervalSequenceLabel.Name = "IntervalSequenceLabel";
             this.IntervalSequenceLabel.Size = new System.Drawing.Size(72, 18);
@@ -336,17 +334,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Длина пакета:";
             // 
-            // headerLabel
-            // 
-            this.headerLabel.AutoSize = true;
-            this.headerLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.headerLabel.Location = new System.Drawing.Point(12, 8);
-            this.headerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(56, 18);
-            this.headerLabel.TabIndex = 11;
-            this.headerLabel.Text = "header";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -408,7 +395,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox PackageLengthTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label headerLabel;
     }
 }
 

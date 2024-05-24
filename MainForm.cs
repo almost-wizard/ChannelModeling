@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ChannelModeling
 {
@@ -46,9 +45,10 @@ namespace ChannelModeling
             ErrorProbabilityLabel.Visible = InterferenceGeneratorComboBox.SelectedIndex == 1;
         }
 
-        private void CalculateErrorSequenceButton_Click(object sender, EventArgs e)
+        private InterferenceGenerator.InterferenceGenerator GetSelectedInterferenceGenerator()
         {
             InterferenceGenerator.InterferenceGenerator generator;
+
             switch (InterferenceGeneratorComboBox.SelectedIndex)
             {
                 case 0:
@@ -63,13 +63,20 @@ namespace ChannelModeling
                     else
                     {
                         MessageBox.Show("Введите корректное значение вероятности ошибки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        return null;
                     }
                     break;
                 default:
                     MessageBox.Show("Выберите корректную модель генерации ошибок", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    return null;
             }
+
+            return generator;
+        }
+
+        private void CalculateErrorSequenceButton_Click(object sender, EventArgs e)
+        {
+            InterferenceGenerator.InterferenceGenerator generator = GetSelectedInterferenceGenerator();
 
             bool sequenceLengthParsed = int.TryParse(SequenceLenthTextBox.Text, out int sequenceLength);
             if (!sequenceLengthParsed || sequenceLength <= 0)
