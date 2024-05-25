@@ -77,6 +77,10 @@ namespace ChannelModeling
         private void CalculateErrorSequenceButton_Click(object sender, EventArgs e)
         {
             InterferenceGenerator.InterferenceGenerator generator = GetSelectedInterferenceGenerator();
+            if (generator == null)
+            {
+                return;
+            }
 
             bool sequenceLengthParsed = int.TryParse(SequenceLenthTextBox.Text, out int sequenceLength);
             if (!sequenceLengthParsed || sequenceLength <= 0)
@@ -93,10 +97,10 @@ namespace ChannelModeling
             }
 
             Models.ErrorSequence errorSequenceModel = new Models.ErrorSequence(generator, sequenceLength, packageLength);
-            errorSequenceModel.Simulate();
 
-            BitsSequenceLabel.Text = errorSequenceModel.BitsSequence;
-            IntervalSequenceLabel.Text = errorSequenceModel.IntervalsSequence;
+            BitsSequenceLabel.Text = errorSequenceModel.BitErrorSequence.ToString();
+            IntervalSequenceLabel.Text = errorSequenceModel.BitErrorSequence.ToIntervalString();
+            PackageSequenceLabel.Text = errorSequenceModel.PackageErrorSequence.ToString();
 
             ErrorSequenceModelGroupBox.Visible = true;
         }

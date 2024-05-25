@@ -31,6 +31,8 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.PackageLengthTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SequenceLenthTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ErrorSequenceModelGroupBox = new System.Windows.Forms.GroupBox();
@@ -52,8 +54,8 @@
             this.ResetSeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deviderToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PackageLengthTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PackageSequenceLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.ErrorSequenceModelGroupBox.SuspendLayout();
@@ -97,6 +99,25 @@
             this.tabPage1.Text = "Реализация последовательности ошибок";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // PackageLengthTextBox
+            // 
+            this.PackageLengthTextBox.Location = new System.Drawing.Point(246, 94);
+            this.PackageLengthTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.PackageLengthTextBox.Name = "PackageLengthTextBox";
+            this.PackageLengthTextBox.Size = new System.Drawing.Size(151, 23);
+            this.PackageLengthTextBox.TabIndex = 9;
+            this.PackageLengthTextBox.Text = "10";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(36, 97);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(112, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Длина пакета:";
+            // 
             // SequenceLenthTextBox
             // 
             this.SequenceLenthTextBox.Location = new System.Drawing.Point(246, 59);
@@ -137,16 +158,18 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.Controls.Add(this.PackageSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.BitsSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.IntervalSequenceLabel);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(8);
-            this.splitContainer1.Size = new System.Drawing.Size(861, 85);
+            this.splitContainer1.Size = new System.Drawing.Size(861, 103);
             this.splitContainer1.SplitterDistance = 231;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 11;
@@ -166,7 +189,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 11F);
-            this.label2.Location = new System.Drawing.Point(4, 38);
+            this.label2.Location = new System.Drawing.Point(4, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(224, 18);
@@ -188,7 +211,7 @@
             // 
             this.IntervalSequenceLabel.AutoSize = true;
             this.IntervalSequenceLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.IntervalSequenceLabel.Location = new System.Drawing.Point(12, 38);
+            this.IntervalSequenceLabel.Location = new System.Drawing.Point(12, 37);
             this.IntervalSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IntervalSequenceLabel.Name = "IntervalSequenceLabel";
             this.IntervalSequenceLabel.Size = new System.Drawing.Size(72, 18);
@@ -269,8 +292,6 @@
             // menuStrip1
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Consolas", 10F);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -315,24 +336,27 @@
             this.ExitToolStripMenuItem.Text = "Выйти";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // PackageLengthTextBox
+            // label6
             // 
-            this.PackageLengthTextBox.Location = new System.Drawing.Point(246, 94);
-            this.PackageLengthTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PackageLengthTextBox.Name = "PackageLengthTextBox";
-            this.PackageLengthTextBox.Size = new System.Drawing.Size(151, 23);
-            this.PackageLengthTextBox.TabIndex = 9;
-            this.PackageLengthTextBox.Text = "10";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label6.Location = new System.Drawing.Point(4, 66);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 18);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "По пакетам:";
             // 
-            // label4
+            // PackageSequenceLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 97);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Длина пакета:";
+            this.PackageSequenceLabel.AutoSize = true;
+            this.PackageSequenceLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.PackageSequenceLabel.Location = new System.Drawing.Point(12, 66);
+            this.PackageSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PackageSequenceLabel.Name = "PackageSequenceLabel";
+            this.PackageSequenceLabel.Size = new System.Drawing.Size(72, 18);
+            this.PackageSequenceLabel.TabIndex = 11;
+            this.PackageSequenceLabel.Text = "sequence";
             // 
             // MainForm
             // 
@@ -395,6 +419,8 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox PackageLengthTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label PackageSequenceLabel;
     }
 }
 
