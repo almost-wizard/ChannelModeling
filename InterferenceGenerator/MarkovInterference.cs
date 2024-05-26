@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChannelModeling.BlocksInterferenceGenerator
+namespace ChannelModeling.InterferenceGenerator
 {
-    public class TwoLevelInterference : BlockInterferenceGenerator
+    public class MarkovInterference : InterferenceGenerator
     {
         private readonly App.Randomizer Randomizer = App.Randomizer.GetInstance();
         private double ErrorProbability;
@@ -22,7 +22,7 @@ namespace ChannelModeling.BlocksInterferenceGenerator
         private double CheckValue;
         private byte CurrentBit;
 
-        public TwoLevelInterference(double errorProbability, double groupingCoefficient, int blockLength)
+        public MarkovInterference(double errorProbability, double groupingCoefficient, int blockLength)
         {
             ErrorProbability = errorProbability;
             GroupingCoefficient = groupingCoefficient;
@@ -32,7 +32,7 @@ namespace ChannelModeling.BlocksInterferenceGenerator
             UpdateCheckValue();
         }
 
-        public override byte NextBlock()
+        public override byte NextBit()
         {
             UpdateCheckValue();
             if (CurrentBit == 1)
