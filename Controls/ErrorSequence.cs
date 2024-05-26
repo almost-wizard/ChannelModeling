@@ -1,13 +1,14 @@
 ﻿using ChannelModeling.Objects;
+using ChannelModeling.Objects.Data;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ChannelModeling.Components
 {
-    public partial class ErrorSequenceImplementation : UserControl
+    public partial class ErrorSequence : UserControl
     {
-        public ErrorSequenceImplementation()
+        public ErrorSequence()
         {
             InitializeComponent();
         }
@@ -47,14 +48,32 @@ namespace ChannelModeling.Components
                 return;
             }
 
-            BitErrorSequence bitErrorSequence = new BitErrorSequence(generator.GenerateInterferences(sequenceLength));
-            PackageErrorSequence packageErrorSequence = new PackageErrorSequence(bitErrorSequence.ToPackageErrors(packageLength));
+            BitSequence bitSequence = new BitSequence(generator.GenerateInterferences(sequenceLength));
+            BitPackageSequence bitPackageSequence = new BitPackageSequence(bitSequence.ToBitPackages(packageLength));
 
-            BitsSequenceLabel.Text = bitErrorSequence.ToString();
-            IntervalSequenceLabel.Text = bitErrorSequence.ToIntervalString();
-            PackageSequenceLabel.Text = packageErrorSequence.ToString();
+            BitsSequenceLabel.Text = bitSequence.ToString();
+            IntervalSequenceLabel.Text = bitSequence.ToIntervalString();
+            PackageSequenceLabel.Text = bitPackageSequence.ToString();
+            PackageIntervalSequenceLabel.Text = bitPackageSequence.ToIntervalString();
+
+            ErrorsRateLabel.Text = Math.Round(bitSequence.ErrorsRate, 2).ToString();
+            GroupingFactorLabel.Text = Math.Round(bitPackageSequence.GroupingFactor, 2).ToString();
+            PackagesCountLabel.Text = bitPackageSequence.Value.Count.ToString();
+            ErrorDensityLabel.Text = Math.Round(bitPackageSequence.GroupingFactor, 2).ToString();
+
+            UpdateDataGrid(bitPackageSequence);
 
             ErrorSequenceModelGroupBox.Visible = true;
+        }
+
+        private void UpdateDataGrid(BitPackageSequence bitPackageSequence)
+        {
+            dataGridView1.Rows.Clear();
+
+            foreach (BitPackage package in bitPackageSequence.Value)
+            {
+                dataGridView1.Rows.Add(package.ToString(), Math.Round(package.ErrorsRate, 2));
+            }
         }
 
         private InterferenceGenerator.InterferenceGenerator GetSelectedInterferenceGenerator()

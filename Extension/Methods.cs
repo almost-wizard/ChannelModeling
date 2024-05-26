@@ -36,7 +36,7 @@ namespace ChannelModeling.ExtensionMethods
             return ToBits(value, value.ToString().Length);
         }
 
-        public static string ToBits(this Objects.PackageError obj)
+        public static string ToBits(this Objects.Data.BitPackage obj)
         {
             return ToBits(obj.Value, obj.Length);
         }

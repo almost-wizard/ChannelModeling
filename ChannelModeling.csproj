@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ErrorSequenceImplementation.cs">
+    <Compile Include="Controls\ErrorSequence.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ErrorSequenceImplementation.Designer.cs">
-      <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
+    <Compile Include="Controls\ErrorSequence.Designer.cs">
+      <DependentUpon>ErrorSequence.cs</DependentUpon>
     </Compile>
     <Compile Include="Extension\Methods.cs" />
     <Compile Include="App\Randomizer.cs" />
@@ -69,12 +69,15 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\BitErrorSequence.cs" />
-    <Compile Include="Objects\PackageError.cs" />
-    <Compile Include="Objects\PackageErrorSequence.cs" />
+    <Compile Include="Objects\Binary\BitSequence.cs" />
+    <Compile Include="Objects\Binary\Data\Bit.cs" />
+    <Compile Include="Objects\Binary\Data\IBinaryData.cs" />
+    <Compile Include="Objects\Binary\Data\BitPackage.cs" />
+    <Compile Include="Objects\Binary\BitPackageSequence.cs" />
+    <Compile Include="Objects\Binary\BinarySequence.cs" />
     <Compile Include="Program.cs" />
-    <EmbeddedResource Include="Controls\ErrorSequenceImplementation.resx">
-      <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ErrorSequence.resx">
+      <DependentUpon>ErrorSequence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetSeed.resx">
       <DependentUpon>SetSeed.cs</DependentUpon>
