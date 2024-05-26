@@ -46,33 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ErrorSequenceImplementation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ErrorSequenceImplementation.Designer.cs">
+      <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extension\Methods.cs" />
-    <Compile Include="Models\ErrorSequence.cs" />
     <Compile Include="App\Randomizer.cs" />
-    <Compile Include="Forms\SetSeedModal.cs">
+    <Compile Include="Forms\SetSeed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetSeedModal.Designer.cs">
-      <DependentUpon>SetSeedModal.cs</DependentUpon>
+    <Compile Include="Forms\SetSeed.Designer.cs">
+      <DependentUpon>SetSeed.cs</DependentUpon>
     </Compile>
     <Compile Include="InterferenceGenerator\BinomialInterference.cs" />
     <Compile Include="InterferenceGenerator\IdealInterference.cs" />
     <Compile Include="InterferenceGenerator\InterferenceGenerator.cs" />
-    <Compile Include="Forms\MainForm.cs">
+    <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Forms\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Objects\BitErrorSequence.cs" />
     <Compile Include="Objects\PackageError.cs" />
     <Compile Include="Objects\PackageErrorSequence.cs" />
     <Compile Include="Program.cs" />
-    <EmbeddedResource Include="Forms\SetSeedModal.resx">
-      <DependentUpon>SetSeedModal.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ErrorSequenceImplementation.resx">
+      <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SetSeed.resx">
+      <DependentUpon>SetSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
