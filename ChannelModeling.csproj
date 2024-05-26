@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterferenceGenerator\MarkovInterference.cs" />
     <Compile Include="Controls\ErrorSequenceImplementation.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ErrorSequenceImplementation.Designer.cs">
       <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataChannel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DataChannel.Designer.cs">
+      <DependentUpon>DataChannel.cs</DependentUpon>
     </Compile>
     <Compile Include="Extension\Methods.cs" />
     <Compile Include="App\Randomizer.cs" />
@@ -75,6 +82,9 @@
     <Compile Include="Program.cs" />
     <EmbeddedResource Include="Controls\ErrorSequenceImplementation.resx">
       <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DataChannel.resx">
+      <DependentUpon>DataChannel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetSeed.resx">
       <DependentUpon>SetSeed.cs</DependentUpon>
