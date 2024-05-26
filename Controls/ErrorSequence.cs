@@ -15,8 +15,13 @@ namespace ChannelModeling.Components
 
         private void ErrorSequenceImplementation_Load(object sender, EventArgs e)
         {
+            // update combobox list with allowed interference models
             InterferenceGeneratorComboBox.DataSource = new List<String> { "Идеальная", "Биномиальная" };
             InterferenceGeneratorComboBox.SelectedIndex = 1;
+
+            // disable selection
+            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
         }
 
         private void InterferenceGeneratorComboBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -47,10 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ErrorSequence.cs">
-    <Compile Include="InterferenceGenerator\MarkovInterference.cs" />
-    <Compile Include="Controls\ErrorSequenceImplementation.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="InterferenceGenerator\MarkovInterference.cs" />
     <Compile Include="Controls\ErrorSequence.Designer.cs">
       <DependentUpon>ErrorSequence.cs</DependentUpon>
     </Compile>

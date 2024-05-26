@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ChannelModeling.InterferenceGenerator
 {
     public class MarkovInterference : InterferenceGenerator
     {
         private readonly App.Randomizer Randomizer = App.Randomizer.GetInstance();
-        private double ErrorProbability;
-        private double GroupingCoefficient;
-        private int BlockLength;
+
+        private readonly double ErrorProbability;
+        private readonly double GroupingCoefficient;
+        private readonly int BlockLength;
 
         private double P_11;
         private double P_01;
@@ -56,7 +53,20 @@ namespace ChannelModeling.InterferenceGenerator
 
         public string GetTransitionMatrix()
         {
-            return $"{P_11} {P_10} \n\n{P_01} {P_00}";
+            double roundedP11 = Math.Round(P_11, 2);
+            double calculatedP10 = 1 - roundedP11;
+            double roundedP01 = Math.Round(P_01, 2);
+            double calculatedP00 = 1 - roundedP01;
+
+            StringBuilder format = new StringBuilder();
+            format.Append($"┌───────────┬────────────┬────────────┐\r\n");
+            format.Append($"│ Состояние │      1     │      0     │\r\n");
+            format.Append($"├───────────┼────────────┼────────────┤\r\n");
+            format.Append($"│     1     │    {roundedP11}    │    {calculatedP10}    │\r\n");
+            format.Append($"├───────────┼────────────┼────────────┤\r\n");
+            format.Append($"│     0     │    {roundedP01}    │    {calculatedP00}    │\r\n");
+            format.Append($"└───────────┴────────────┴────────────┘");
+            return format.ToString();
         }
 
         private void CulculateTransientProbabilities()

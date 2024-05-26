@@ -1,19 +1,12 @@
 ﻿using ChannelModeling.Objects;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ChannelModeling.Controls
 {
-    public partial class TwoLevelChannelImplementetion : UserControl
+    public partial class DataChannel : UserControl
     {
-        public TwoLevelChannelImplementetion()
+        public DataChannel()
         {
             InitializeComponent();
         }
@@ -22,19 +15,20 @@ namespace ChannelModeling.Controls
         {
             bool errorProbabilityParsed = double.TryParse(ErrorProbabilityTextBox.Text, out double errorProbabilty);
             bool groupCoefficientParsed = double.TryParse(GroupCoefficientTextBox.Text, out double groupCoefficient);
-            bool blockLengthParsed = int.TryParse(BlockLengthTextBox.Text, out int blockLength);
-            bool blockCountParsed = int.TryParse(BlockCountTextBox.Text, out int blockCount);
+            bool blockLengthParsed = int.TryParse(PackageLengthTextBox.Text, out int blockLength);
+            bool blockCountParsed = int.TryParse(PackageCountTextBox.Text, out int blockCount);
 
-            if (!(errorProbabilityParsed && groupCoefficientParsed && blockLengthParsed && blockCountParsed))
+            if (!errorProbabilityParsed || !groupCoefficientParsed || !blockLengthParsed || !blockCountParsed)
             {
                 MessageBox.Show("Введите корректные значения параметров", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             InterferenceGenerator.MarkovInterference generator;
 
             if (errorProbabilty < 0 || errorProbabilty > 0.5)
             {
-                MessageBox.Show("Вероятность ошибки в двоичном символе должна принимать значения от 0 до 0.5", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Вероятность ошибки в двоичном символе должна принимать значения от 0 до 0,5", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -58,8 +52,8 @@ namespace ChannelModeling.Controls
 
             generator = new InterferenceGenerator.MarkovInterference(errorProbabilty, groupCoefficient, blockLength);
 
-            BitErrorSequence packageError = new BitErrorSequence(generator.GenerateInterferences(blockCount));
-            BlockErrorsSequence.Text = packageError.ToString();
+            BitSequence bitSequence = new BitSequence(generator.GenerateInterferences(blockCount));
+            ErrorsPackageSequence.Text = bitSequence.ToString();
 
             TransitionMatrixLablel.Text = generator.GetTransitionMatrix();
 
