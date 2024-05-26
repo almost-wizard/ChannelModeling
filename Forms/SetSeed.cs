@@ -3,11 +3,11 @@ using System.Windows.Forms;
 
 namespace ChannelModeling.Forms
 {
-    public partial class SetSeedModal : Form
+    public partial class SetSeed : Form
     {
         private static readonly App.Randomizer Randomizer = App.Randomizer.GetInstance();
 
-        public SetSeedModal()
+        public SetSeed()
         {
             InitializeComponent();
         }

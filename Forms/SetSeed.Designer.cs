@@ -1,6 +1,6 @@
 ﻿namespace ChannelModeling.Forms
 {
-    partial class SetSeedModal
+    partial class SetSeed
     {
         /// <summary>
         /// Required designer variable.

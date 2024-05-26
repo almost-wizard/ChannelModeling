@@ -21,7 +21,7 @@ namespace ChannelModeling
 
         private void SetSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.SetSeedModal form = new Forms.SetSeedModal();
+            Forms.SetSeed form = new Forms.SetSeed();
             form.ShowDialog();
         }
 
