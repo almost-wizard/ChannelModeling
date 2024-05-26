@@ -1,6 +1,6 @@
 ﻿namespace ChannelModeling.Components
 {
-    partial class ErrorSequenceImplementation
+    partial class ErrorSequence
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -33,10 +33,16 @@
             this.SequenceLenthTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ErrorSequenceModelGroupBox = new System.Windows.Forms.GroupBox();
+            this.GroupingFactorLabel = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ErrorsRateLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.PackageIntervalSequenceLabel = new System.Windows.Forms.Label();
             this.PackageSequenceLabel = new System.Windows.Forms.Label();
             this.BitsSequenceLabel = new System.Windows.Forms.Label();
             this.IntervalSequenceLabel = new System.Windows.Forms.Label();
@@ -45,11 +51,19 @@
             this.SimulateErrorSequenceButton = new System.Windows.Forms.Button();
             this.InterferenceGeneratorComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.PackagesCountLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Package = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ErrorsRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ErrorDensityLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.ErrorSequenceModelGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // PackageLengthTextBox
@@ -95,6 +109,15 @@
             this.ErrorSequenceModelGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.ErrorDensityLabel);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.label12);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.dataGridView1);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.PackagesCountLabel);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.label11);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.GroupingFactorLabel);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.label9);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.ErrorsRateLabel);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.label7);
             this.ErrorSequenceModelGroupBox.Controls.Add(this.splitContainer1);
             this.ErrorSequenceModelGroupBox.Location = new System.Drawing.Point(8, 112);
             this.ErrorSequenceModelGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -105,6 +128,50 @@
             this.ErrorSequenceModelGroupBox.TabStop = false;
             this.ErrorSequenceModelGroupBox.Text = "Результат";
             this.ErrorSequenceModelGroupBox.Visible = false;
+            // 
+            // GroupingFactorLabel
+            // 
+            this.GroupingFactorLabel.AutoSize = true;
+            this.GroupingFactorLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.GroupingFactorLabel.Location = new System.Drawing.Point(231, 198);
+            this.GroupingFactorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GroupingFactorLabel.Name = "GroupingFactorLabel";
+            this.GroupingFactorLabel.Size = new System.Drawing.Size(16, 18);
+            this.GroupingFactorLabel.TabIndex = 14;
+            this.GroupingFactorLabel.Text = "k";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label9.Location = new System.Drawing.Point(11, 198);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(216, 18);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Коэффициент группирования:";
+            // 
+            // ErrorsRateLabel
+            // 
+            this.ErrorsRateLabel.AutoSize = true;
+            this.ErrorsRateLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.ErrorsRateLabel.Location = new System.Drawing.Point(231, 178);
+            this.ErrorsRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ErrorsRateLabel.Name = "ErrorsRateLabel";
+            this.ErrorsRateLabel.Size = new System.Drawing.Size(16, 18);
+            this.ErrorsRateLabel.TabIndex = 12;
+            this.ErrorsRateLabel.Text = "k";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label7.Location = new System.Drawing.Point(11, 178);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(160, 18);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Коэффициент ошибок:";
             // 
             // splitContainer1
             // 
@@ -117,6 +184,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label8);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -124,14 +192,26 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.Controls.Add(this.PackageIntervalSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.PackageSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.BitsSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.IntervalSequenceLabel);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(8);
-            this.splitContainer1.Size = new System.Drawing.Size(775, 103);
-            this.splitContainer1.SplitterDistance = 233;
+            this.splitContainer1.Size = new System.Drawing.Size(775, 132);
+            this.splitContainer1.SplitterDistance = 258;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label8.Location = new System.Drawing.Point(4, 94);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(224, 18);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Интервальное представление:";
             // 
             // label6
             // 
@@ -165,6 +245,17 @@
             this.label2.Size = new System.Drawing.Size(224, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "Интервальное представление:";
+            // 
+            // PackageIntervalSequenceLabel
+            // 
+            this.PackageIntervalSequenceLabel.AutoSize = true;
+            this.PackageIntervalSequenceLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.PackageIntervalSequenceLabel.Location = new System.Drawing.Point(12, 94);
+            this.PackageIntervalSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PackageIntervalSequenceLabel.Name = "PackageIntervalSequenceLabel";
+            this.PackageIntervalSequenceLabel.Size = new System.Drawing.Size(72, 18);
+            this.PackageIntervalSequenceLabel.TabIndex = 12;
+            this.PackageIntervalSequenceLabel.Text = "sequence";
             // 
             // PackageSequenceLabel
             // 
@@ -252,6 +343,86 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Модель генерации ошибок:";
             // 
+            // PackagesCountLabel
+            // 
+            this.PackagesCountLabel.AutoSize = true;
+            this.PackagesCountLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.PackagesCountLabel.Location = new System.Drawing.Point(231, 241);
+            this.PackagesCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PackagesCountLabel.Name = "PackagesCountLabel";
+            this.PackagesCountLabel.Size = new System.Drawing.Size(16, 18);
+            this.PackagesCountLabel.TabIndex = 16;
+            this.PackagesCountLabel.Text = "k";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label11.Location = new System.Drawing.Point(11, 241);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(160, 18);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Количество пакетов:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Package,
+            this.ErrorsRate});
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView1.Location = new System.Drawing.Point(285, 181);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(483, 105);
+            this.dataGridView1.TabIndex = 17;
+            // 
+            // Package
+            // 
+            this.Package.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Package.HeaderText = "Пакет";
+            this.Package.Name = "Package";
+            this.Package.ReadOnly = true;
+            // 
+            // ErrorsRate
+            // 
+            this.ErrorsRate.HeaderText = "Коэффициент ошибок";
+            this.ErrorsRate.MinimumWidth = 180;
+            this.ErrorsRate.Name = "ErrorsRate";
+            this.ErrorsRate.ReadOnly = true;
+            this.ErrorsRate.Width = 180;
+            // 
+            // ErrorDensityLabel
+            // 
+            this.ErrorDensityLabel.AutoSize = true;
+            this.ErrorDensityLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.ErrorDensityLabel.Location = new System.Drawing.Point(231, 219);
+            this.ErrorDensityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ErrorDensityLabel.Name = "ErrorDensityLabel";
+            this.ErrorDensityLabel.Size = new System.Drawing.Size(16, 18);
+            this.ErrorDensityLabel.TabIndex = 19;
+            this.ErrorDensityLabel.Text = "k";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label12.Location = new System.Drawing.Point(11, 219);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(144, 18);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Плотность ошибок:";
+            // 
             // ErrorSequenceImplementation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -272,12 +443,14 @@
             this.Size = new System.Drawing.Size(807, 513);
             this.Load += new System.EventHandler(this.ErrorSequenceImplementation_Load);
             this.ErrorSequenceModelGroupBox.ResumeLayout(false);
+            this.ErrorSequenceModelGroupBox.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +475,18 @@
         private System.Windows.Forms.Button SimulateErrorSequenceButton;
         private System.Windows.Forms.ComboBox InterferenceGeneratorComboBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label GroupingFactorLabel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label ErrorsRateLabel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label PackageIntervalSequenceLabel;
+        private System.Windows.Forms.Label PackagesCountLabel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Package;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ErrorsRate;
+        private System.Windows.Forms.Label ErrorDensityLabel;
+        private System.Windows.Forms.Label label12;
     }
 }

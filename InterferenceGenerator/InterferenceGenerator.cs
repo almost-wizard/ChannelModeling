@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using ChannelModeling.Objects.Data;
+using System.Collections.Generic;
 
 namespace ChannelModeling.InterferenceGenerator
 {
     public abstract class InterferenceGenerator
     {
-        public List<byte> GenerateInterferences(int length = 8)
+        public List<Bit> GenerateInterferences(int length = 8)
         {
-            List<byte> result = new List<byte>(length);
+            List<Bit> result = new List<Bit>(length);
 
             for (int i = 0; i < length; i += 1)
             {
-                result.Add(NextBit());
+                result.Add(new Bit(NextBit()));
             }
 
             return result;
