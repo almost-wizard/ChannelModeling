@@ -46,11 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlocksInterferenceGenerator\BlockInterferenceGenerator.cs" />
+    <Compile Include="BlocksInterferenceGenerator\TwoLevelInterference.cs" />
     <Compile Include="Controls\ErrorSequenceImplementation.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ErrorSequenceImplementation.Designer.cs">
       <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TwoLevelChannelImplementetion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TwoLevelChannelImplementetion.Designer.cs">
+      <DependentUpon>TwoLevelChannelImplementetion.cs</DependentUpon>
     </Compile>
     <Compile Include="Extension\Methods.cs" />
     <Compile Include="App\Randomizer.cs" />
@@ -72,9 +80,13 @@
     <Compile Include="Objects\BitErrorSequence.cs" />
     <Compile Include="Objects\PackageError.cs" />
     <Compile Include="Objects\PackageErrorSequence.cs" />
+    <Compile Include="Objects\PackageStatesSequence.cs" />
     <Compile Include="Program.cs" />
     <EmbeddedResource Include="Controls\ErrorSequenceImplementation.resx">
       <DependentUpon>ErrorSequenceImplementation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TwoLevelChannelImplementetion.resx">
+      <DependentUpon>TwoLevelChannelImplementetion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetSeed.resx">
       <DependentUpon>SetSeed.cs</DependentUpon>
