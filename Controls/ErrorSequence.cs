@@ -64,7 +64,7 @@ namespace ChannelModeling.Components
             ErrorsRateLabel.Text = Math.Round(bitSequence.ErrorsRate, 2).ToString();
             GroupingFactorLabel.Text = Math.Round(bitPackageSequence.GroupingFactor, 2).ToString();
             PackagesCountLabel.Text = bitPackageSequence.Value.Count.ToString();
-            ErrorDensityLabel.Text = Math.Round(bitPackageSequence.GroupingFactor, 2).ToString();
+            ErrorDensityLabel.Text = Math.Round(bitPackageSequence.ErrorDensity, 2).ToString();
 
             UpdateDataGrid(bitPackageSequence);
 

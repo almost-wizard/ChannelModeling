@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChannelModeling.Objects.Tabler;
+using System;
 using System.Text;
 
 namespace ChannelModeling.InterferenceGenerator
@@ -58,15 +59,14 @@ namespace ChannelModeling.InterferenceGenerator
             double roundedP01 = Math.Round(P_01, 2);
             double calculatedP00 = 1 - roundedP01;
 
-            StringBuilder format = new StringBuilder();
-            format.Append($"┌───────────┬────────────┬────────────┐\r\n");
-            format.Append($"│ Состояние │      1     │      0     │\r\n");
-            format.Append($"├───────────┼────────────┼────────────┤\r\n");
-            format.Append($"│     1     │    {roundedP11}    │    {calculatedP10}    │\r\n");
-            format.Append($"├───────────┼────────────┼────────────┤\r\n");
-            format.Append($"│     0     │    {roundedP01}    │    {calculatedP00}    │\r\n");
-            format.Append($"└───────────┴────────────┴────────────┘");
-            return format.ToString();
+            String[] header = new string[3] { "Состояние", "1", "0" };
+            String[] row1 = new string[3] { "1", roundedP11.ToString("F2"), calculatedP10.ToString("F2") };
+            String[] row2 = new string[3] { "0", roundedP01.ToString("F2"), calculatedP00.ToString("F2") };
+
+            Tabler tabler = Tabler.Construct(3, 3).SetHeaderData(header).AddRowData(row1).AddRowData(row2);
+            tabler.RowTextAlign = TextAlign.CENTER;
+
+            return String.Format("Матрица переходных состояний:\n{0}", tabler.ToString());
         }
 
         private void CulculateTransientProbabilities()

@@ -36,14 +36,12 @@
             this.GroupCoefficientTextBox = new System.Windows.Forms.TextBox();
             this.PackageLengthTextBox = new System.Windows.Forms.TextBox();
             this.PackageCountTextBox = new System.Windows.Forms.TextBox();
-            this.TransitionMatrixGroupBox = new System.Windows.Forms.GroupBox();
             this.TransitionMatrixLablel = new System.Windows.Forms.Label();
             this.BlockErrorsSequanceGroupBox = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label5 = new System.Windows.Forms.Label();
             this.ErrorsPackageSequence = new System.Windows.Forms.Label();
             this.SimulateTwoLevelChannelButton = new System.Windows.Forms.Button();
-            this.TransitionMatrixGroupBox.SuspendLayout();
             this.BlockErrorsSequanceGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -127,30 +125,19 @@
             this.PackageCountTextBox.TabIndex = 7;
             this.PackageCountTextBox.Text = "20";
             // 
-            // TransitionMatrixGroupBox
-            // 
-            this.TransitionMatrixGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TransitionMatrixGroupBox.Controls.Add(this.TransitionMatrixLablel);
-            this.TransitionMatrixGroupBox.Location = new System.Drawing.Point(461, 13);
-            this.TransitionMatrixGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TransitionMatrixGroupBox.Name = "TransitionMatrixGroupBox";
-            this.TransitionMatrixGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TransitionMatrixGroupBox.Size = new System.Drawing.Size(326, 144);
-            this.TransitionMatrixGroupBox.TabIndex = 8;
-            this.TransitionMatrixGroupBox.TabStop = false;
-            this.TransitionMatrixGroupBox.Text = "Матрица переходных состояний";
-            this.TransitionMatrixGroupBox.Visible = false;
-            // 
             // TransitionMatrixLablel
             // 
-            this.TransitionMatrixLablel.AutoSize = true;
-            this.TransitionMatrixLablel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TransitionMatrixLablel.Location = new System.Drawing.Point(4, 19);
+            this.TransitionMatrixLablel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TransitionMatrixLablel.Location = new System.Drawing.Point(437, 13);
             this.TransitionMatrixLablel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TransitionMatrixLablel.Name = "TransitionMatrixLablel";
-            this.TransitionMatrixLablel.Size = new System.Drawing.Size(88, 17);
+            this.TransitionMatrixLablel.Size = new System.Drawing.Size(350, 136);
             this.TransitionMatrixLablel.TabIndex = 0;
-            this.TransitionMatrixLablel.Text = "transition";
+            this.TransitionMatrixLablel.Text = "transitionMatrix";
+            this.TransitionMatrixLablel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.TransitionMatrixLablel.Visible = false;
             // 
             // BlockErrorsSequanceGroupBox
             // 
@@ -185,7 +172,7 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.ErrorsPackageSequence);
-            this.splitContainer1.Size = new System.Drawing.Size(770, 76);
+            this.splitContainer1.Size = new System.Drawing.Size(762, 76);
             this.splitContainer1.SplitterDistance = 167;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
@@ -222,13 +209,13 @@
             this.SimulateTwoLevelChannelButton.UseVisualStyleBackColor = true;
             this.SimulateTwoLevelChannelButton.Click += new System.EventHandler(this.SimulateTwoLevelChannelButton_Click);
             // 
-            // TwoLevelChannelImplementetion
+            // DataChannel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TransitionMatrixLablel);
             this.Controls.Add(this.SimulateTwoLevelChannelButton);
             this.Controls.Add(this.BlockErrorsSequanceGroupBox);
-            this.Controls.Add(this.TransitionMatrixGroupBox);
             this.Controls.Add(this.PackageCountTextBox);
             this.Controls.Add(this.PackageLengthTextBox);
             this.Controls.Add(this.GroupCoefficientTextBox);
@@ -239,10 +226,8 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "TwoLevelChannelImplementetion";
+            this.Name = "DataChannel";
             this.Size = new System.Drawing.Size(807, 513);
-            this.TransitionMatrixGroupBox.ResumeLayout(false);
-            this.TransitionMatrixGroupBox.PerformLayout();
             this.BlockErrorsSequanceGroupBox.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -265,7 +250,6 @@
         private System.Windows.Forms.TextBox GroupCoefficientTextBox;
         private System.Windows.Forms.TextBox PackageLengthTextBox;
         private System.Windows.Forms.TextBox PackageCountTextBox;
-        private System.Windows.Forms.GroupBox TransitionMatrixGroupBox;
         private System.Windows.Forms.Label TransitionMatrixLablel;
         private System.Windows.Forms.GroupBox BlockErrorsSequanceGroupBox;
         private System.Windows.Forms.SplitContainer splitContainer1;

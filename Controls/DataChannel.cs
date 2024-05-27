@@ -40,13 +40,13 @@ namespace ChannelModeling.Controls
 
             if (blockLength < 10 || blockLength > 500)
             {
-                MessageBox.Show("Длина блока должна принимать значения от 10 до 500", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Длина пакета должна принимать значения от 10 до 500", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (blockCount <= 0)
             {
-                MessageBox.Show("Количество блоков должно быть натуральным числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Количество пакетов должно быть натуральным числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -57,7 +57,7 @@ namespace ChannelModeling.Controls
 
             TransitionMatrixLablel.Text = generator.GetTransitionMatrix();
 
-            TransitionMatrixGroupBox.Visible = true;
+            TransitionMatrixLablel.Visible = true;
             BlockErrorsSequanceGroupBox.Visible = true;
         }
     }
