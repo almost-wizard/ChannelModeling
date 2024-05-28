@@ -67,18 +67,20 @@ namespace ChannelModeling.Controls
 
             if (ModelComboBox.SelectedIndex == 0)
             {
-                InterferenceGenerator.GilbertInterference generator_1 = (GilbertInterference)generator;
+                GilbertInterference generator_1 = (GilbertInterference)generator;
                 TransitionMatrixLabel.Text = generator_1.GetTransitionMatrix();
             }
             else
             {
-                InterferenceGenerator.SmithInterference generator_1 = (SmithInterference)generator;
+                SmithInterference generator_1 = (SmithInterference)generator;
                 TransitionMatrixLabel.Text = generator_1.GetTransitionMatrix();
             }
             TransitionMatrixLabel.Visible = true;
+
             BitSequence bitSequence = new BitSequence(generator.GenerateInterferences(sequenceLength));
             BitPackageSequence bitPackageSequence = new BitPackageSequence(bitSequence.ToBitPackages(packageLength));
-            BitSequence packageStages = bitPackageSequence.GetPackagesStages();
+            BitSequence packageStages = bitPackageSequence.GetPackageStages();
+
             BitSequenceLabel.Text = bitSequence.ToString();
             PackageBitSequensLabel.Text = bitPackageSequence.ToString();
             PackageStagesLabel.Text = packageStages.ToString();
@@ -86,6 +88,7 @@ namespace ChannelModeling.Controls
             ErrorDensityLabel.Text = Math.Round(bitPackageSequence.ErrorDensity, 2).ToString();
             ErrorsRateLabel.Text = Math.Round(bitPackageSequence.ErrorsRate, 2).ToString();
             GroupingFactorLabel.Text = Math.Round(bitPackageSequence.GroupingFactor, 2).ToString();
+
             ResultsGroupBox.Visible = true; 
         }
 

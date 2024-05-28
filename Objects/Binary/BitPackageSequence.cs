@@ -27,26 +27,21 @@ namespace ChannelModeling.Objects
             TotalErrorBitsCount = GetTotalErrorBitsCount(value);
         }
 
+        public BitSequence GetPackageStages()
+        {
+            List<Bit> bits = new List<Bit>(Value.Count);
+
+            for (int i = 0; i < Value.Count; i += 1)
+            {
+                bits.Add(new Bit(Value[i].HasError ? 1 : 0));
+            }
+
+            return new BitSequence(bits);
+        }
+
         private int GetTotalErrorBitsCount(List<BitPackage> value)
         {
             return value.Aggregate(0, (total, next) => total += next.ErrorsCount);
-        }
-
-        public BitSequence GetPackagesStages()
-        {
-            List<Bit> bits = new List<Bit>();
-            Bit bit_1 = new Bit((byte) 1);
-            Bit bit_0 = new Bit((byte) 0);
-            for (int i = 0; i < Value.Count; i += 1)
-            {
-                if (Value[i].HasError)
-                {
-                    bits.Add(bit_1);
-                    continue;
-                }
-                bits.Add(bit_0);
-            }
-            return new BitSequence(bits);
         }
 
         public override string ToString()
