@@ -38,6 +38,21 @@ namespace ChannelModeling.Objects
 
             return new BitSequence(bits);
         }
+        
+        // errors count in package => packages count
+        public Dictionary<int, double> GetErrorsProbabilitiesDistribution()
+        {
+            Dictionary<int, double> result = new Dictionary<int, double>(PackageSize + 1);
+
+            for (int errorsCount = 0; errorsCount <= PackageSize; errorsCount += 1)
+            {
+                double errorPackagesCount = Value.Where(p => p.ErrorsCount == errorsCount).Count();
+                result.Add(errorsCount, errorPackagesCount / Value.Count);
+            }
+
+            return result;
+
+        }
 
         private int GetTotalErrorBitsCount(List<BitPackage> value)
         {

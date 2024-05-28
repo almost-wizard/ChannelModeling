@@ -2,6 +2,7 @@
 using ChannelModeling.Objects.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ChannelModeling.Components
@@ -66,9 +67,25 @@ namespace ChannelModeling.Components
             PackagesCountLabel.Text = bitPackageSequence.Value.Count.ToString();
             ErrorDensityLabel.Text = Math.Round(bitPackageSequence.ErrorDensity, 2).ToString();
 
+            UpdateChart(bitPackageSequence);
             UpdateDataGrid(bitPackageSequence);
 
             ErrorSequenceModelGroupBox.Visible = true;
+        }
+
+        private void UpdateChart(BitPackageSequence bitPackageSequence)
+        {
+            Dictionary<int, double> errorProbabilitiesDistribution = bitPackageSequence.GetErrorsProbabilitiesDistribution();
+            List<int> errorsCounts = errorProbabilitiesDistribution.Select(kvp => kvp.Key).ToList();
+            List<double> errorProbabilities = errorProbabilitiesDistribution.Select(kvp => kvp.Value).ToList();
+
+            ErrorProbabilitiesChart.ChartAreas[0].AxisX.LabelStyle.Interval = bitPackageSequence.PackageSize;
+            ErrorProbabilitiesChart.ChartAreas[0].AxisX.Maximum = bitPackageSequence.PackageSize;
+            ErrorProbabilitiesChart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            ErrorProbabilitiesChart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+            ErrorProbabilitiesChart.ChartAreas[0].AxisX.Interval = 1;
+
+            ErrorProbabilitiesChart.Series[0].Points.DataBindXY(errorsCounts, errorProbabilities);
         }
 
         private void UpdateDataGrid(BitPackageSequence bitPackageSequence)
