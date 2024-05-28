@@ -46,9 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DiscreteChannel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DiscreteChannel.Designer.cs">
+      <DependentUpon>DiscreteChannel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ErrorSequence.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="InterferenceGenerator\GilbertInterference.cs" />
     <Compile Include="InterferenceGenerator\MarkovInterference.cs" />
     <Compile Include="Controls\ErrorSequence.Designer.cs">
       <DependentUpon>ErrorSequence.cs</DependentUpon>
@@ -76,6 +83,7 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterferenceGenerator\SmithInterference.cs" />
     <Compile Include="Objects\Binary\BitSequence.cs" />
     <Compile Include="Objects\Binary\Data\Bit.cs" />
     <Compile Include="Objects\Binary\Data\IBinaryData.cs" />
@@ -86,6 +94,9 @@
     <Compile Include="Objects\Tabler\Tabler.cs" />
     <Compile Include="Objects\Tabler\TextAlign.cs" />
     <Compile Include="Program.cs" />
+    <EmbeddedResource Include="Controls\DiscreteChannel.resx">
+      <DependentUpon>DiscreteChannel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ErrorSequence.resx">
       <DependentUpon>ErrorSequence.cs</DependentUpon>
     </EmbeddedResource>

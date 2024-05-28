@@ -1,5 +1,6 @@
 ﻿using ChannelModeling.Objects;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ChannelModeling.Controls
@@ -9,6 +10,13 @@ namespace ChannelModeling.Controls
         public DataChannel()
         {
             InitializeComponent();
+        }
+
+        private void DataChannel_Load(object sender, EventArgs e)
+        {
+            DataChannelComboBox.DataSource = new List<String> { "Кабельный телефонный выделеный", "Кабельный телефонный коммутируемый", 
+                "Радиорелейный телефонный", "Тропосферный телефонный", "Радиотелеграфный КВ-канал", "Пользовательские данные"};
+            DataChannelComboBox.SelectedIndex = 0;
         }
 
         private void SimulateTwoLevelChannelButton_Click(object sender, EventArgs e)
@@ -59,6 +67,52 @@ namespace ChannelModeling.Controls
 
             TransitionMatrixLablel.Visible = true;
             BlockErrorsSequanceGroupBox.Visible = true;
+        }
+
+        private void DataChannelComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // fucking костыль but works good and заебца
+            this.ErrorProbabilityTextBox.TextChanged -= new System.EventHandler(this.ErrorProbabilityTextBox_TextChanged);
+            this.GroupCoefficientTextBox.TextChanged -= new System.EventHandler(this.GroupCoefficientTextBox_TextChanged);
+
+            switch (DataChannelComboBox.SelectedIndex)
+            {
+                case 0:
+                    ErrorProbabilityTextBox.Text = "0,00001";
+                    GroupCoefficientTextBox.Text = "0,8";
+                    break;
+                case 1:
+                    ErrorProbabilityTextBox.Text = "0,000667";
+                    GroupCoefficientTextBox.Text = "0,33";
+                    break;
+                case 2:
+                    ErrorProbabilityTextBox.Text = "0,0000428";
+                    GroupCoefficientTextBox.Text = "0,6";
+                    break;
+                case 3:
+                    ErrorProbabilityTextBox.Text = "0,0007";
+                    GroupCoefficientTextBox.Text = "0,44";
+                    break;
+                case 4:
+                    ErrorProbabilityTextBox.Text = "0,02";
+                    GroupCoefficientTextBox.Text = "0,32";
+                    break;
+                case 5:
+                    break;
+            }
+
+            this.ErrorProbabilityTextBox.TextChanged += new System.EventHandler(this.ErrorProbabilityTextBox_TextChanged);
+            this.GroupCoefficientTextBox.TextChanged += new System.EventHandler(this.GroupCoefficientTextBox_TextChanged);
+        }
+
+        private void GroupCoefficientTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DataChannelComboBox.SelectedIndex = 5;
+        }
+
+        private void ErrorProbabilityTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DataChannelComboBox.SelectedIndex = 5;
         }
     }
 }

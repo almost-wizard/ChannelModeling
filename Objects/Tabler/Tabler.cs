@@ -118,9 +118,15 @@ namespace ChannelModeling.Objects.Tabler
 
             result.Append(CreateHeader());
 
-            foreach (var row in RowData)
+            for (int i = 0; i < RowData.Count; i++)
             {
-                result.Append(CreateRow(row, RowTextAlign));
+                result.Append(CreateRow(RowData[i], RowTextAlign));
+
+                if (i + 1 != RowData.Count)
+                {
+                    result.Append(Element.Devider.BODY.Create(ColumnSizes));
+                }
+                
             }
 
             result.Append(Element.Devider.FOOTER.Create(ColumnSizes));
