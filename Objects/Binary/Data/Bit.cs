@@ -15,7 +15,12 @@
 
         public Bit(byte value)
         {
-            Value = value;        
+            Value = value;
+        }
+
+        public Bit(int value)
+        {
+            Value = (byte)value;
         }
 
         public override string ToString()

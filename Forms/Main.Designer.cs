@@ -41,8 +41,10 @@
             this.ResetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deviderToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.discreteChannel1 = new ChannelModeling.Controls.DiscreteChannel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +85,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.discreteChannel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage2.Name = "tabPage2";
@@ -162,6 +165,16 @@
             this.ExitToolStripMenuItem.Text = "Выйти";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
+            // discreteChannel1
+            // 
+            this.discreteChannel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.discreteChannel1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.discreteChannel1.Location = new System.Drawing.Point(4, 3);
+            this.discreteChannel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.discreteChannel1.Name = "discreteChannel1";
+            this.discreteChannel1.Size = new System.Drawing.Size(953, 524);
+            this.discreteChannel1.TabIndex = 0;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -180,6 +193,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -203,6 +217,7 @@
         private System.Windows.Forms.ToolStripSeparator deviderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private Controls.DataChannel dataChannel1;
+        private Controls.DiscreteChannel discreteChannel1;
     }
 }
 

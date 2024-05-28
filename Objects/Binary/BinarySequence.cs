@@ -11,6 +11,7 @@ namespace ChannelModeling.Objects
         public List<T> Value { get; }
 
         public int ErrorsCount { get; }
+
         public double ErrorsRate { get { return (double)ErrorsCount / Value.Count; } }
 
         public BinarySequence(List<T> value)

@@ -11,12 +11,15 @@ namespace ChannelModeling.Objects
         private static readonly String PACKAGE_SEQUENCE_DEVIDER = " | ";
 
         public int TotalErrorBitsCount { get; }
+
         public int PackageSize => Value.Count != 0 ? Value[0].Length : 0;
+
         public double GroupingFactor => (
             TotalErrorBitsCount != 0 && ErrorsCount != 0
                 ? (Math.Log(TotalErrorBitsCount) - Math.Log(ErrorsCount)) / Math.Log(PackageSize)
                 : 0
         );
+
         public double ErrorDensity => 1d / Math.Pow(PackageSize, 1 - GroupingFactor);
 
         public BitPackageSequence(List<BitPackage> value) : base(value)
@@ -24,6 +27,18 @@ namespace ChannelModeling.Objects
             TotalErrorBitsCount = GetTotalErrorBitsCount(value);
         }
 
+        public BitSequence GetPackageStages()
+        {
+            List<Bit> bits = new List<Bit>(Value.Count);
+
+            for (int i = 0; i < Value.Count; i += 1)
+            {
+                bits.Add(new Bit(Value[i].HasError ? 1 : 0));
+            }
+
+            return new BitSequence(bits);
+        }
+        
         // errors count in package => packages count
         public Dictionary<int, double> GetErrorsProbabilitiesDistribution()
         {
@@ -36,6 +51,7 @@ namespace ChannelModeling.Objects
             }
 
             return result;
+
         }
 
         private int GetTotalErrorBitsCount(List<BitPackage> value)
