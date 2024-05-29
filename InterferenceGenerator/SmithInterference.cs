@@ -56,9 +56,9 @@ namespace ChannelModeling.InterferenceGenerator
         public string GetTransitionMatrix()
         {
             String[] header = new string[4] { "Состояние", "2",  "1", "0" };
-            String[] row1 = new string[4] { "2", 0.ToString("F2"), string.Format("{0:0.##E+00}", P_21), string.Format("{0:0.##E+00}", P_20) };
-            String[] row2 = new string[4] { "1", string.Format("{0:0.##E+00}", P_12), 0.ToString("F2"), 0.ToString("F2") };
-            String[] row3 = new string[4] { "0", string.Format("{0:0.##E+00}", P_02), 0.ToString("F2"), 0.ToString("F2") };
+            String[] row1 = new string[4] { "2", "-", string.Format("{0:0.##E+00}", P_21), string.Format("{0:0.##E+00}", P_20) };
+            String[] row2 = new string[4] { "1", string.Format("{0:0.##E+00}", P_12), "-", "-" };
+            String[] row3 = new string[4] { "0", string.Format("{0:0.##E+00}", P_02), "-", "-" };
 
             Tabler tabler = Tabler.Construct(4, 4).SetHeaderData(header).AddRowData(row1).AddRowData(row2).AddRowData(row3);
             tabler.RowTextAlign = TextAlign.CENTER;

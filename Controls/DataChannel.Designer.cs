@@ -132,7 +132,7 @@
             this.PackageCountTextBox.Name = "PackageCountTextBox";
             this.PackageCountTextBox.Size = new System.Drawing.Size(121, 31);
             this.PackageCountTextBox.TabIndex = 7;
-            this.PackageCountTextBox.Text = "20";
+            this.PackageCountTextBox.Text = "1000";
             // 
             // TransitionMatrixLablel
             // 
