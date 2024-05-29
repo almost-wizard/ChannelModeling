@@ -7,7 +7,7 @@ namespace ChannelModeling.Objects.Data
 {
     public class BitPackage : IBinaryData
     {
-        public int Value { get; set; }   // stores sequence in decimal and represents it in binary
+        public long Value { get; set; }   // stores sequence in decimal and represents it in binary
 
         public int Length { get; }  // for represent data in binary
         public bool HasError => ErrorsCount > 0;
@@ -30,7 +30,7 @@ namespace ChannelModeling.Objects.Data
 
         public BitPackage(List<Bit> bits)
         {
-            Value = Convert.ToInt32(String.Join("", bits), 2);
+            Value = Convert.ToInt64(String.Join("", bits), 2);
             Length = bits.Count;
             ErrorsCount = GetErrorsCount();
         }

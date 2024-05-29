@@ -56,7 +56,7 @@
             this.label1.Location = new System.Drawing.Point(4, 70);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(417, 23);
+            this.label1.Size = new System.Drawing.Size(304, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Вероятность ошибки двоичного символа:";
             // 
@@ -66,7 +66,7 @@
             this.label2.Location = new System.Drawing.Point(4, 106);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(296, 23);
+            this.label2.Size = new System.Drawing.Size(216, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Коэффициент группирования:";
             // 
@@ -76,7 +76,7 @@
             this.label3.Location = new System.Drawing.Point(4, 143);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 23);
+            this.label3.Size = new System.Drawing.Size(112, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Длина пакета:";
             // 
@@ -86,7 +86,7 @@
             this.label4.Location = new System.Drawing.Point(4, 180);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(219, 23);
+            this.label4.Size = new System.Drawing.Size(160, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Количество пакетов:";
             // 
@@ -95,7 +95,7 @@
             this.ErrorProbabilityTextBox.Location = new System.Drawing.Point(308, 67);
             this.ErrorProbabilityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ErrorProbabilityTextBox.Name = "ErrorProbabilityTextBox";
-            this.ErrorProbabilityTextBox.Size = new System.Drawing.Size(121, 31);
+            this.ErrorProbabilityTextBox.Size = new System.Drawing.Size(121, 23);
             this.ErrorProbabilityTextBox.TabIndex = 4;
             this.ErrorProbabilityTextBox.Text = "0,1";
             this.ErrorProbabilityTextBox.TextChanged += new System.EventHandler(this.ErrorProbabilityTextBox_TextChanged);
@@ -105,7 +105,7 @@
             this.GroupCoefficientTextBox.Location = new System.Drawing.Point(308, 104);
             this.GroupCoefficientTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.GroupCoefficientTextBox.Name = "GroupCoefficientTextBox";
-            this.GroupCoefficientTextBox.Size = new System.Drawing.Size(121, 31);
+            this.GroupCoefficientTextBox.Size = new System.Drawing.Size(121, 23);
             this.GroupCoefficientTextBox.TabIndex = 5;
             this.GroupCoefficientTextBox.Text = "0,4";
             this.GroupCoefficientTextBox.TextChanged += new System.EventHandler(this.GroupCoefficientTextBox_TextChanged);
@@ -115,7 +115,7 @@
             this.PackageLengthTextBox.Location = new System.Drawing.Point(308, 143);
             this.PackageLengthTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PackageLengthTextBox.Name = "PackageLengthTextBox";
-            this.PackageLengthTextBox.Size = new System.Drawing.Size(121, 31);
+            this.PackageLengthTextBox.Size = new System.Drawing.Size(121, 23);
             this.PackageLengthTextBox.TabIndex = 6;
             this.PackageLengthTextBox.Text = "20";
             // 
@@ -124,7 +124,7 @@
             this.PackageCountTextBox.Location = new System.Drawing.Point(308, 180);
             this.PackageCountTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PackageCountTextBox.Name = "PackageCountTextBox";
-            this.PackageCountTextBox.Size = new System.Drawing.Size(121, 31);
+            this.PackageCountTextBox.Size = new System.Drawing.Size(121, 23);
             this.PackageCountTextBox.TabIndex = 7;
             this.PackageCountTextBox.Text = "20";
             // 
@@ -186,7 +186,7 @@
             this.label5.Location = new System.Drawing.Point(4, 10);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(219, 23);
+            this.label5.Size = new System.Drawing.Size(160, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Последовательность:";
             // 
@@ -196,7 +196,7 @@
             this.ErrorsPackageSequence.Location = new System.Drawing.Point(22, 10);
             this.ErrorsPackageSequence.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ErrorsPackageSequence.Name = "ErrorsPackageSequence";
-            this.ErrorsPackageSequence.Size = new System.Drawing.Size(98, 23);
+            this.ErrorsPackageSequence.Size = new System.Drawing.Size(72, 17);
             this.ErrorsPackageSequence.TabIndex = 0;
             this.ErrorsPackageSequence.Text = "sequence";
             // 
@@ -217,13 +217,13 @@
             this.DataChannelComboBox.FormattingEnabled = true;
             this.DataChannelComboBox.Location = new System.Drawing.Point(8, 27);
             this.DataChannelComboBox.Name = "DataChannelComboBox";
-            this.DataChannelComboBox.Size = new System.Drawing.Size(422, 31);
+            this.DataChannelComboBox.Size = new System.Drawing.Size(422, 23);
             this.DataChannelComboBox.TabIndex = 11;
             this.DataChannelComboBox.SelectedIndexChanged += new System.EventHandler(this.DataChannelComboBox_SelectedIndexChanged);
             // 
             // DataChannel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.DataChannelComboBox);
             this.Controls.Add(this.TransitionMatrixLablel);

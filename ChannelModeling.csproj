@@ -56,6 +56,12 @@
     <Compile Include="Controls\ErrorSequence.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\DistribuitionCharts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DistribuitionCharts.Designer.cs">
+      <DependentUpon>DistribuitionCharts.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterferenceGenerator\GilbertInterference.cs" />
     <Compile Include="InterferenceGenerator\MarkovInterference.cs" />
     <Compile Include="Controls\ErrorSequence.Designer.cs">
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DataChannel.resx">
       <DependentUpon>DataChannel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DistribuitionCharts.resx">
+      <DependentUpon>DistribuitionCharts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetSeed.resx">
       <DependentUpon>SetSeed.cs</DependentUpon>
