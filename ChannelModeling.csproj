@@ -56,6 +56,7 @@
     <Compile Include="Controls\ErrorSequence.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="InterferenceGenerator\EliotInterference.cs" />
     <Compile Include="InterferenceGenerator\GilbertInterference.cs" />
     <Compile Include="InterferenceGenerator\MarkovInterference.cs" />
     <Compile Include="Controls\ErrorSequence.Designer.cs">
