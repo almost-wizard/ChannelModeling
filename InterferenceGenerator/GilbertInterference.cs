@@ -28,9 +28,10 @@ namespace ChannelModeling.InterferenceGenerator
 
         public override byte NextBit()
         {
+            double CheckValue = Randomizer.NextDouble();
             if (Stage == 1)
             {
-                if (Randomizer.NextDouble() > P_10)
+                if (CheckValue > P_10)
                 {
                     if (Randomizer.NextDouble() <= PackageErrorPropability)
                     {
@@ -49,7 +50,7 @@ namespace ChannelModeling.InterferenceGenerator
             }
             else
             {
-                if (Randomizer.NextDouble() > P_01)
+                if (CheckValue > P_01)
                 {
                     return (byte)0;
                 }

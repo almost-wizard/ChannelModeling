@@ -21,7 +21,6 @@ namespace ChannelModeling.InterferenceGenerator
         private double P_12;
         private double P_02;
 
-        private double CheckValue;
         private byte CurrentBit;
         private int Stage;
 
@@ -35,16 +34,16 @@ namespace ChannelModeling.InterferenceGenerator
             P_20 = p_20;
             P_12 = p_12;
             P_02 = p_02;
-            UpdateCheckValue();
         }
 
         public override byte NextBit()
         {
+            double CheckValue = Randomizer.NextDouble();
             if (Stage == 2)
             {
                 if (CheckValue > P_21)
                 {
-                    if (CheckValue <= ConditionTwoErrorPropability)
+                    if (Randomizer.NextDouble() <= ConditionTwoErrorPropability)
                     {
                         CurrentBit = 1;
                     }
@@ -56,7 +55,7 @@ namespace ChannelModeling.InterferenceGenerator
                 else if (CheckValue < P_20)
                 {
                     Stage = 1;
-                    if (CheckValue <= ConditionOneErrorPropability)
+                    if (Randomizer.NextDouble() <= ConditionOneErrorPropability)
                     {
                         CurrentBit = 1;
                     }
@@ -68,7 +67,7 @@ namespace ChannelModeling.InterferenceGenerator
                 else
                 {
                     Stage = 0;
-                    if (CheckValue <= ConditionZeroErrorPropability)
+                    if (Randomizer.NextDouble() <= ConditionZeroErrorPropability)
                     {
                         CurrentBit = 1;
                     }
@@ -82,7 +81,7 @@ namespace ChannelModeling.InterferenceGenerator
             {
                 if (CheckValue < P_12)
                 {
-                    if (CheckValue <= ConditionOneErrorPropability)
+                    if (Randomizer.NextDouble() <= ConditionOneErrorPropability)
                     {
                         CurrentBit = 1;
                     }
@@ -94,7 +93,7 @@ namespace ChannelModeling.InterferenceGenerator
                 else
                 {
                     Stage = 2;
-                    if (CheckValue <= ConditionTwoErrorPropability)
+                    if (Randomizer.NextDouble() <= ConditionTwoErrorPropability)
                     {
                         CurrentBit = 1;
                     }
@@ -108,7 +107,7 @@ namespace ChannelModeling.InterferenceGenerator
             {
                 if (CheckValue < P_02)
                 {
-                    if (CheckValue <= ConditionZeroErrorPropability)
+                    if (Randomizer.NextDouble() <= ConditionZeroErrorPropability)
                     {
                         CurrentBit = 1;
                     }
@@ -120,7 +119,7 @@ namespace ChannelModeling.InterferenceGenerator
                 else
                 {
                     Stage = 2;
-                    if (CheckValue <= ConditionTwoErrorPropability)
+                    if (Randomizer.NextDouble() <= ConditionTwoErrorPropability)
                     {
                         CurrentBit = 1;
                     }
@@ -130,7 +129,6 @@ namespace ChannelModeling.InterferenceGenerator
                     }
                 }
             }
-            UpdateCheckValue();
             return CurrentBit;
         }
 
@@ -149,11 +147,11 @@ namespace ChannelModeling.InterferenceGenerator
 
         private void InitStage()
         {
-            if (Randomizer.NextDouble() <= (1 / 3))
+            if (Randomizer.NextDouble() <= ((double)1 / 3))
             {
                 Stage = 2;
             }
-            else if (Randomizer.NextDouble() <= (2 / 3))
+            else if (Randomizer.NextDouble() <= ((double)2 / 3))
             {
                 Stage = 1;
             }
@@ -161,11 +159,6 @@ namespace ChannelModeling.InterferenceGenerator
             {
                 Stage = 0;
             }
-        }
-
-        private void UpdateCheckValue()
-        {
-            CheckValue = Randomizer.NextDouble();
         }
     }
 }
