@@ -38,8 +38,14 @@
             this.PackageCountTextBox = new System.Windows.Forms.TextBox();
             this.TransitionMatrixLablel = new System.Windows.Forms.Label();
             this.BlockErrorsSequanceGroupBox = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.PackagesWithErrorsCountLabel = new System.Windows.Forms.Label();
+            this.ErrorsRateLabel = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.IntervalSequenceLabel = new System.Windows.Forms.Label();
             this.ErrorsPackageSequence = new System.Windows.Forms.Label();
             this.SimulateTwoLevelChannelButton = new System.Windows.Forms.Button();
             this.DataChannelComboBox = new System.Windows.Forms.ComboBox();
@@ -126,7 +132,7 @@
             this.PackageCountTextBox.Name = "PackageCountTextBox";
             this.PackageCountTextBox.Size = new System.Drawing.Size(121, 31);
             this.PackageCountTextBox.TabIndex = 7;
-            this.PackageCountTextBox.Text = "20";
+            this.PackageCountTextBox.Text = "1000";
             // 
             // TransitionMatrixLablel
             // 
@@ -147,6 +153,10 @@
             this.BlockErrorsSequanceGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.BlockErrorsSequanceGroupBox.Controls.Add(this.label23);
+            this.BlockErrorsSequanceGroupBox.Controls.Add(this.PackagesWithErrorsCountLabel);
+            this.BlockErrorsSequanceGroupBox.Controls.Add(this.ErrorsRateLabel);
+            this.BlockErrorsSequanceGroupBox.Controls.Add(this.label21);
             this.BlockErrorsSequanceGroupBox.Controls.Add(this.splitContainer1);
             this.BlockErrorsSequanceGroupBox.Location = new System.Drawing.Point(8, 243);
             this.BlockErrorsSequanceGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -157,6 +167,50 @@
             this.BlockErrorsSequanceGroupBox.TabStop = false;
             this.BlockErrorsSequanceGroupBox.Text = "Результаты";
             this.BlockErrorsSequanceGroupBox.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label23.Location = new System.Drawing.Point(4, 112);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(240, 26);
+            this.label23.TabIndex = 28;
+            this.label23.Text = "Коэффициент ошибок:";
+            // 
+            // PackagesWithErrorsCountLabel
+            // 
+            this.PackagesWithErrorsCountLabel.AutoSize = true;
+            this.PackagesWithErrorsCountLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.PackagesWithErrorsCountLabel.Location = new System.Drawing.Point(247, 138);
+            this.PackagesWithErrorsCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PackagesWithErrorsCountLabel.Name = "PackagesWithErrorsCountLabel";
+            this.PackagesWithErrorsCountLabel.Size = new System.Drawing.Size(24, 26);
+            this.PackagesWithErrorsCountLabel.TabIndex = 33;
+            this.PackagesWithErrorsCountLabel.Text = "k";
+            // 
+            // ErrorsRateLabel
+            // 
+            this.ErrorsRateLabel.AutoSize = true;
+            this.ErrorsRateLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.ErrorsRateLabel.Location = new System.Drawing.Point(247, 112);
+            this.ErrorsRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ErrorsRateLabel.Name = "ErrorsRateLabel";
+            this.ErrorsRateLabel.Size = new System.Drawing.Size(24, 26);
+            this.ErrorsRateLabel.TabIndex = 29;
+            this.ErrorsRateLabel.Text = "k";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label21.Location = new System.Drawing.Point(8, 138);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(360, 26);
+            this.label21.TabIndex = 32;
+            this.label21.Text = "Количество ошибочных пакетов:";
             // 
             // splitContainer1
             // 
@@ -169,16 +223,27 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.Controls.Add(this.IntervalSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.ErrorsPackageSequence);
             this.splitContainer1.Size = new System.Drawing.Size(762, 76);
-            this.splitContainer1.SplitterDistance = 167;
+            this.splitContainer1.SplitterDistance = 221;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(307, 23);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Интервальное представление:";
             // 
             // label5
             // 
@@ -190,10 +255,20 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Последовательность:";
             // 
+            // IntervalSequenceLabel
+            // 
+            this.IntervalSequenceLabel.AutoSize = true;
+            this.IntervalSequenceLabel.Location = new System.Drawing.Point(4, 37);
+            this.IntervalSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.IntervalSequenceLabel.Name = "IntervalSequenceLabel";
+            this.IntervalSequenceLabel.Size = new System.Drawing.Size(98, 23);
+            this.IntervalSequenceLabel.TabIndex = 1;
+            this.IntervalSequenceLabel.Text = "sequence";
+            // 
             // ErrorsPackageSequence
             // 
             this.ErrorsPackageSequence.AutoSize = true;
-            this.ErrorsPackageSequence.Location = new System.Drawing.Point(22, 10);
+            this.ErrorsPackageSequence.Location = new System.Drawing.Point(4, 10);
             this.ErrorsPackageSequence.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ErrorsPackageSequence.Name = "ErrorsPackageSequence";
             this.ErrorsPackageSequence.Size = new System.Drawing.Size(98, 23);
@@ -243,6 +318,7 @@
             this.Size = new System.Drawing.Size(807, 513);
             this.Load += new System.EventHandler(this.DataChannel_Load);
             this.BlockErrorsSequanceGroupBox.ResumeLayout(false);
+            this.BlockErrorsSequanceGroupBox.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -271,5 +347,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label ErrorsPackageSequence;
         private System.Windows.Forms.ComboBox DataChannelComboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label IntervalSequenceLabel;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label PackagesWithErrorsCountLabel;
+        private System.Windows.Forms.Label ErrorsRateLabel;
+        private System.Windows.Forms.Label label21;
     }
 }

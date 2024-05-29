@@ -16,7 +16,7 @@ namespace ChannelModeling.Controls
         {
             DataChannelComboBox.DataSource = new List<String> { "Кабельный телефонный выделеный", "Кабельный телефонный коммутируемый", 
                 "Радиорелейный телефонный", "Тропосферный телефонный", "Радиотелеграфный КВ-канал", "Пользовательские данные"};
-            DataChannelComboBox.SelectedIndex = 0;
+            DataChannelComboBox.SelectedIndex = 4;
         }
 
         private void SimulateTwoLevelChannelButton_Click(object sender, EventArgs e)
@@ -60,8 +60,12 @@ namespace ChannelModeling.Controls
 
             generator = new InterferenceGenerator.MarkovInterference(errorProbabilty, groupCoefficient, blockLength);
 
-            BitSequence bitSequence = new BitSequence(generator.GenerateInterferences(blockCount));
-            ErrorsPackageSequence.Text = bitSequence.ToString();
+            BitSequence markovBitSequence = new BitSequence(generator.GenerateInterferences(blockCount));
+            ErrorsPackageSequence.Text = markovBitSequence.ToString();
+            IntervalSequenceLabel.Text = markovBitSequence.ToIntervalString();
+
+            ErrorsRateLabel.Text = markovBitSequence.ErrorsRate.ToString();
+            PackagesWithErrorsCountLabel.Text = markovBitSequence.ErrorsCount.ToString();
 
             TransitionMatrixLablel.Text = generator.GetTransitionMatrix();
 
@@ -78,8 +82,8 @@ namespace ChannelModeling.Controls
             switch (DataChannelComboBox.SelectedIndex)
             {
                 case 0:
-                    ErrorProbabilityTextBox.Text = "0,00001";
-                    GroupCoefficientTextBox.Text = "0,8";
+                    ErrorProbabilityTextBox.Text = "0,00004";
+                    GroupCoefficientTextBox.Text = "0,6";
                     break;
                 case 1:
                     ErrorProbabilityTextBox.Text = "0,000667";
