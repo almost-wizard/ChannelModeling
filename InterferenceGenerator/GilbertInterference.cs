@@ -16,25 +16,55 @@ namespace ChannelModeling.InterferenceGenerator
         private double P_10;
         private double P_01;
 
-        private double BitErrorPropability;
+        private byte Stage;
 
         public GilbertInterference(double packageErrorPropability, double p_10, double p_01)
         {
             PackageErrorPropability = packageErrorPropability;
             P_10 = p_10;
             P_01 = p_01;
-            CulculateBitErrorPropability();
+            InitStage();
         }
 
         public override byte NextBit()
         {
-            if (Randomizer.NextDouble() <= BitErrorPropability)
+            if (Stage == 1)
             {
-                return (byte)1;
+                if (Randomizer.NextDouble() > P_10)
+                {
+                    if (Randomizer.NextDouble() <= PackageErrorPropability)
+                    {
+                        return (byte) 1;
+                    }
+                    else
+                    {
+                        return (byte) 0;
+                    }
+                }
+                else
+                {
+                    Stage = 0;
+                    return (byte)0;
+                }
             }
             else
             {
-                return (byte)0;
+                if (Randomizer.NextDouble() > P_01)
+                {
+                    return (byte)0;
+                }
+                else
+                {
+                    Stage = 1;
+                    if (Randomizer.NextDouble() <= PackageErrorPropability)
+                    {
+                        return (byte)1;
+                    }
+                    else
+                    {
+                        return (byte)0;
+                    }
+                }
             }
         }
 
@@ -55,9 +85,16 @@ namespace ChannelModeling.InterferenceGenerator
             return String.Format("Матрица переходных состояний:\n{0}", tabler.ToString());
         }
 
-        private void CulculateBitErrorPropability()
+        private void InitStage()
         {
-            BitErrorPropability = PackageErrorPropability * P_01 / (P_01 + P_10);
+            if (Randomizer.NextDouble() <= 0.5)
+            {
+                Stage = 1;
+            }
+            else
+            {
+                Stage = 0;
+            }
         }
     }
 }

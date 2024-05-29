@@ -1,6 +1,7 @@
 ﻿using ChannelModeling.Objects.Tabler;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,9 @@ namespace ChannelModeling.InterferenceGenerator
         private double P_12;
         private double P_02;
 
-        private double BitErrorPropability;
+        private double CheckValue;
+        private byte CurrentBit;
+        private int Stage;
 
         public SmithInterference(double conditionZeroPropability, double conditionOnePropability, 
             double conditionTwoPropability, double p_21, double p_20, double p_12, double p_02)
@@ -32,20 +35,103 @@ namespace ChannelModeling.InterferenceGenerator
             P_20 = p_20;
             P_12 = p_12;
             P_02 = p_02;
-
-            CulculateBitErrorPropability();
+            UpdateCheckValue();
         }
 
         public override byte NextBit()
         {
-            if (Randomizer.NextDouble() <= BitErrorPropability)
+            if (Stage == 2)
             {
-                return (byte)1;
+                if (CheckValue > P_21)
+                {
+                    if (CheckValue <= ConditionTwoErrorPropability)
+                    {
+                        CurrentBit = 1;
+                    }
+                    else
+                    {
+                        CurrentBit = 0;
+                    }
+                }
+                else if (CheckValue < P_20)
+                {
+                    Stage = 1;
+                    if (CheckValue <= ConditionOneErrorPropability)
+                    {
+                        CurrentBit = 1;
+                    }
+                    else
+                    {
+                        CurrentBit = 0;
+                    }
+                }
+                else
+                {
+                    Stage = 0;
+                    if (CheckValue <= ConditionZeroErrorPropability)
+                    {
+                        CurrentBit = 1;
+                    }
+                    else
+                    {
+                        CurrentBit = 0;
+                    }
+                }
+            }
+            else if (Stage == 1)
+            {
+                if (CheckValue < P_12)
+                {
+                    if (CheckValue <= ConditionOneErrorPropability)
+                    {
+                        CurrentBit = 1;
+                    }
+                    else
+                    {
+                        CurrentBit = 0;
+                    }
+                }
+                else
+                {
+                    Stage = 2;
+                    if (CheckValue <= ConditionTwoErrorPropability)
+                    {
+                        CurrentBit = 1;
+                    }
+                    else
+                    {
+                        CurrentBit = 0;
+                    }
+                }
             }
             else
             {
-                return (byte)0;
+                if (CheckValue < P_02)
+                {
+                    if (CheckValue <= ConditionZeroErrorPropability)
+                    {
+                        CurrentBit = 1;
+                    }
+                    else
+                    {
+                        CurrentBit = 0;
+                    }
+                }
+                else
+                {
+                    Stage = 2;
+                    if (CheckValue <= ConditionTwoErrorPropability)
+                    {
+                        CurrentBit = 1;
+                    }
+                    else
+                    {
+                        CurrentBit = 0;
+                    }
+                }
             }
+            UpdateCheckValue();
+            return CurrentBit;
         }
 
         public string GetTransitionMatrix()
@@ -61,14 +147,25 @@ namespace ChannelModeling.InterferenceGenerator
             return String.Format("Матрица переходных состояний:\n{0}", tabler.ToString());
         }
 
-        private void CulculateBitErrorPropability()
+        private void InitStage()
         {
-            double P_z = P_12 * P_20 + P_02 * P_21 + P_02 * P_12;
-            double P_0 = P_12 * P_20 / P_z;
-            double P_1 = P_02 * P_21 / P_z;
-            double P_2 = P_02 * P_12 / P_z;
-            BitErrorPropability = ConditionZeroErrorPropability * P_0 + ConditionOneErrorPropability * P_1 + 
-                ConditionTwoErrorPropability * P_2;
+            if (Randomizer.NextDouble() <= (1 / 3))
+            {
+                Stage = 2;
+            }
+            else if (Randomizer.NextDouble() <= (2 / 3))
+            {
+                Stage = 1;
+            }
+            else
+            {
+                Stage = 0;
+            }
+        }
+
+        private void UpdateCheckValue()
+        {
+            CheckValue = Randomizer.NextDouble();
         }
     }
 }

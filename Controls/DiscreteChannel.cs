@@ -84,7 +84,7 @@ namespace ChannelModeling.Controls
             PackageStagesLabel.Text = packageStages.ToString();
             PackagesCountLabel.Text = BitPackageSequence.Value.Count.ToString();
             ErrorDensityLabel.Text = Math.Round(BitPackageSequence.ErrorDensity, 2).ToString();
-            ErrorsRateLabel.Text = Math.Round(BitPackageSequence.ErrorsRate, 2).ToString();
+            ErrorsRateLabel.Text = Math.Round(BitSequence.ErrorsRate, 2).ToString();
             GroupingFactorLabel.Text = Math.Round(BitPackageSequence.GroupingFactor, 2).ToString();
 
             ResultsGroupBox.Visible = true; 
