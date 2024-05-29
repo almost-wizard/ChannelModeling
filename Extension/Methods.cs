@@ -31,6 +31,13 @@ namespace ChannelModeling.ExtensionMethods
             return binary;
         }
 
+        public static string ToBits(this long value, int length)
+        {
+            string binary = Convert.ToString(value, 2);
+            binary = "0".Repeat(length - binary.Length) + binary;
+            return binary;
+        }
+
         public static string ToBits(this int value)
         {
             return ToBits(value, value.ToString().Length);

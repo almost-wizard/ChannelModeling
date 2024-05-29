@@ -1,14 +1,17 @@
-﻿using ChannelModeling.Objects;
+﻿using ChannelModeling.Forms;
+using ChannelModeling.Objects;
 using ChannelModeling.Objects.Data;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ChannelModeling.Components
 {
     public partial class ErrorSequence : UserControl
     {
+        private BitPackageSequence BitPackageSequence { get; set; }
+        private BitSequence BitSequence { get; set; }
+
         public ErrorSequence()
         {
             InitializeComponent();
@@ -51,44 +54,28 @@ namespace ChannelModeling.Components
             }
 
             bool packageLengthParsed = int.TryParse(PackageLengthTextBox.Text, out int packageLength);
-            if (!packageLengthParsed || packageLength <= 0)
+            if (!packageLengthParsed || packageLength <= 0 || packageLength > 60)
             {
-                MessageBox.Show("Введите корректное значение длины пакета", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введите корректное значение длины пакета из диапазона[1; 60]", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            BitSequence bitSequence = new BitSequence(generator.GenerateInterferences(sequenceLength));
-            BitPackageSequence bitPackageSequence = new BitPackageSequence(bitSequence.ToBitPackages(packageLength));
+            BitSequence = new BitSequence(generator.GenerateInterferences(sequenceLength));
+            BitPackageSequence = new BitPackageSequence(BitSequence.ToBitPackages(packageLength));
 
-            BitsSequenceLabel.Text = bitSequence.ToString();
-            IntervalSequenceLabel.Text = bitSequence.ToIntervalString();
-            PackageSequenceLabel.Text = bitPackageSequence.ToString();
-            PackageIntervalSequenceLabel.Text = bitPackageSequence.ToIntervalString();
+            BitsSequenceLabel.Text = BitSequence.ToString();
+            IntervalSequenceLabel.Text = BitSequence.ToIntervalString();
+            PackageSequenceLabel.Text = BitPackageSequence.ToString();
+            PackageIntervalSequenceLabel.Text = BitPackageSequence.ToIntervalString();
 
-            ErrorsRateLabel.Text = Math.Round(bitSequence.ErrorsRate, 2).ToString();
-            GroupingFactorLabel.Text = Math.Round(bitPackageSequence.GroupingFactor, 2).ToString();
-            PackagesCountLabel.Text = bitPackageSequence.Value.Count.ToString();
-            ErrorDensityLabel.Text = Math.Round(bitPackageSequence.ErrorDensity, 2).ToString();
+            ErrorsRateLabel.Text = Math.Round(BitSequence.ErrorsRate, 2).ToString();
+            GroupingFactorLabel.Text = Math.Round(BitPackageSequence.GroupingFactor, 2).ToString();
+            PackagesCountLabel.Text = BitPackageSequence.Value.Count.ToString();
+            ErrorDensityLabel.Text = Math.Round(BitPackageSequence.ErrorDensity, 2).ToString();
 
-            UpdateChart(bitPackageSequence);
-            UpdateDataGrid(bitPackageSequence);
+            UpdateDataGrid(BitPackageSequence);
 
             ErrorSequenceModelGroupBox.Visible = true;
-        }
-
-        private void UpdateChart(BitPackageSequence bitPackageSequence)
-        {
-            Dictionary<int, double> errorProbabilitiesDistribution = bitPackageSequence.GetErrorsProbabilitiesDistribution();
-            List<int> errorsCounts = errorProbabilitiesDistribution.Select(kvp => kvp.Key).ToList();
-            List<double> errorProbabilities = errorProbabilitiesDistribution.Select(kvp => kvp.Value).ToList();
-
-            ErrorProbabilitiesChart.ChartAreas[0].AxisX.LabelStyle.Interval = bitPackageSequence.PackageSize;
-            ErrorProbabilitiesChart.ChartAreas[0].AxisX.Maximum = bitPackageSequence.PackageSize;
-            ErrorProbabilitiesChart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-            ErrorProbabilitiesChart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
-            ErrorProbabilitiesChart.ChartAreas[0].AxisX.Interval = 1;
-
-            ErrorProbabilitiesChart.Series[0].Points.DataBindXY(errorsCounts, errorProbabilities);
         }
 
         private void UpdateDataGrid(BitPackageSequence bitPackageSequence)
@@ -143,6 +130,14 @@ namespace ChannelModeling.Components
             }
 
             return generator;
+        }
+
+        private void ShowChartsButton_Click(object sender, EventArgs e)
+        {
+            using (DistribuitionCharts chartsForm = new DistribuitionCharts(BitSequence, BitPackageSequence))
+            {
+                chartsForm.ShowDialog();
+            }
         }
     }
 }

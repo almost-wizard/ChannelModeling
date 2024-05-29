@@ -30,6 +30,8 @@
         {
             this.ModelComboBox = new System.Windows.Forms.ComboBox();
             this.DataForSmithGroupBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.P02TextBox = new System.Windows.Forms.TextBox();
             this.P20TextBox = new System.Windows.Forms.TextBox();
@@ -59,6 +61,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.PackageLengthTextBox = new System.Windows.Forms.TextBox();
             this.ResultsGroupBox = new System.Windows.Forms.GroupBox();
+            this.ErrorDensityLabel = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.label18 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,16 +69,14 @@
             this.PackageStagesLabel = new System.Windows.Forms.Label();
             this.PackageBitSequensLabel = new System.Windows.Forms.Label();
             this.BitSequenceLabel = new System.Windows.Forms.Label();
-            this.ErrorDensityLabel = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.PackagesCountLabel = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.GroupingFactorLabel = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.ErrorsRateLabel = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.PackagesCountLabel = new System.Windows.Forms.Label();
+            this.ErrorsRateLabel = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.GroupingFactorLabel = new System.Windows.Forms.Label();
+            this.ShowChartsButton = new System.Windows.Forms.Button();
             this.DataForSmithGroupBox.SuspendLayout();
             this.DataForGilbertGroupBox.SuspendLayout();
             this.ResultsGroupBox.SuspendLayout();
@@ -120,6 +121,26 @@
             this.DataForSmithGroupBox.Size = new System.Drawing.Size(408, 185);
             this.DataForSmithGroupBox.TabIndex = 1;
             this.DataForSmithGroupBox.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(292, 49);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 17);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "0:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(151, 49);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 17);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "1:";
             // 
             // label7
             // 
@@ -204,7 +225,7 @@
             this.E0TextBox.Name = "E0TextBox";
             this.E0TextBox.Size = new System.Drawing.Size(78, 23);
             this.E0TextBox.TabIndex = 5;
-            this.E0TextBox.Text = "0,1";
+            this.E0TextBox.Text = "0,5";
             // 
             // E1TextBox
             // 
@@ -307,7 +328,7 @@
             this.ETextBox.Name = "ETextBox";
             this.ETextBox.Size = new System.Drawing.Size(78, 23);
             this.ETextBox.TabIndex = 1;
-            this.ETextBox.Text = "0,1";
+            this.ETextBox.Text = "0,5";
             // 
             // label11
             // 
@@ -333,7 +354,7 @@
             // SimulateButton
             // 
             this.SimulateButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.SimulateButton.Location = new System.Drawing.Point(447, 475);
+            this.SimulateButton.Location = new System.Drawing.Point(447, 482);
             this.SimulateButton.Name = "SimulateButton";
             this.SimulateButton.Size = new System.Drawing.Size(200, 43);
             this.SimulateButton.TabIndex = 5;
@@ -356,7 +377,7 @@
             this.SequenceLengthTextBox.Name = "SequenceLengthTextBox";
             this.SequenceLengthTextBox.Size = new System.Drawing.Size(78, 23);
             this.SequenceLengthTextBox.TabIndex = 7;
-            this.SequenceLengthTextBox.Text = "20";
+            this.SequenceLengthTextBox.Text = "100";
             // 
             // label14
             // 
@@ -377,7 +398,9 @@
             // 
             // ResultsGroupBox
             // 
-            this.ResultsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResultsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResultsGroupBox.Controls.Add(this.ShowChartsButton);
             this.ResultsGroupBox.Controls.Add(this.ErrorDensityLabel);
             this.ResultsGroupBox.Controls.Add(this.splitContainer2);
             this.ResultsGroupBox.Controls.Add(this.label20);
@@ -387,13 +410,24 @@
             this.ResultsGroupBox.Controls.Add(this.label21);
             this.ResultsGroupBox.Controls.Add(this.label22);
             this.ResultsGroupBox.Controls.Add(this.GroupingFactorLabel);
-            this.ResultsGroupBox.Location = new System.Drawing.Point(17, 316);
+            this.ResultsGroupBox.Location = new System.Drawing.Point(17, 307);
             this.ResultsGroupBox.Name = "ResultsGroupBox";
-            this.ResultsGroupBox.Size = new System.Drawing.Size(1059, 140);
+            this.ResultsGroupBox.Size = new System.Drawing.Size(1059, 170);
             this.ResultsGroupBox.TabIndex = 10;
             this.ResultsGroupBox.TabStop = false;
             this.ResultsGroupBox.Text = "Результаты";
             this.ResultsGroupBox.Visible = false;
+            // 
+            // ErrorDensityLabel
+            // 
+            this.ErrorDensityLabel.AutoSize = true;
+            this.ErrorDensityLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.ErrorDensityLabel.Location = new System.Drawing.Point(228, 78);
+            this.ErrorDensityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ErrorDensityLabel.Name = "ErrorDensityLabel";
+            this.ErrorDensityLabel.Size = new System.Drawing.Size(16, 18);
+            this.ErrorDensityLabel.TabIndex = 27;
+            this.ErrorDensityLabel.Text = "k";
             // 
             // splitContainer2
             // 
@@ -415,7 +449,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.PackageStagesLabel);
             this.splitContainer2.Panel2.Controls.Add(this.PackageBitSequensLabel);
             this.splitContainer2.Panel2.Controls.Add(this.BitSequenceLabel);
-            this.splitContainer2.Size = new System.Drawing.Size(763, 110);
+            this.splitContainer2.Size = new System.Drawing.Size(763, 112);
             this.splitContainer2.SplitterDistance = 279;
             this.splitContainer2.TabIndex = 3;
             this.splitContainer2.Tag = "";
@@ -423,11 +457,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(4, 64);
+            this.label18.Location = new System.Drawing.Point(2, 64);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(152, 17);
+            this.label18.Size = new System.Drawing.Size(168, 17);
             this.label18.TabIndex = 2;
-            this.label18.Text = "Состояния пакетов:";
+            this.label18.Text = "Ошибочность пакетов:";
             // 
             // label10
             // 
@@ -474,17 +508,6 @@
             this.BitSequenceLabel.TabIndex = 0;
             this.BitSequenceLabel.Text = "sequence";
             // 
-            // ErrorDensityLabel
-            // 
-            this.ErrorDensityLabel.AutoSize = true;
-            this.ErrorDensityLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.ErrorDensityLabel.Location = new System.Drawing.Point(228, 78);
-            this.ErrorDensityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ErrorDensityLabel.Name = "ErrorDensityLabel";
-            this.ErrorDensityLabel.Size = new System.Drawing.Size(16, 18);
-            this.ErrorDensityLabel.TabIndex = 27;
-            this.ErrorDensityLabel.Text = "k";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -495,61 +518,6 @@
             this.label20.Size = new System.Drawing.Size(144, 18);
             this.label20.TabIndex = 26;
             this.label20.Text = "Плотность ошибок:";
-            // 
-            // PackagesCountLabel
-            // 
-            this.PackagesCountLabel.AutoSize = true;
-            this.PackagesCountLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.PackagesCountLabel.Location = new System.Drawing.Point(228, 101);
-            this.PackagesCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.PackagesCountLabel.Name = "PackagesCountLabel";
-            this.PackagesCountLabel.Size = new System.Drawing.Size(16, 18);
-            this.PackagesCountLabel.TabIndex = 25;
-            this.PackagesCountLabel.Text = "k";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Consolas", 11F);
-            this.label21.Location = new System.Drawing.Point(7, 101);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(160, 18);
-            this.label21.TabIndex = 24;
-            this.label21.Text = "Количество пакетов:";
-            // 
-            // GroupingFactorLabel
-            // 
-            this.GroupingFactorLabel.AutoSize = true;
-            this.GroupingFactorLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.GroupingFactorLabel.Location = new System.Drawing.Point(228, 55);
-            this.GroupingFactorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.GroupingFactorLabel.Name = "GroupingFactorLabel";
-            this.GroupingFactorLabel.Size = new System.Drawing.Size(16, 18);
-            this.GroupingFactorLabel.TabIndex = 23;
-            this.GroupingFactorLabel.Text = "k";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Consolas", 11F);
-            this.label22.Location = new System.Drawing.Point(6, 55);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(216, 18);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "Коэффициент группирования:";
-            // 
-            // ErrorsRateLabel
-            // 
-            this.ErrorsRateLabel.AutoSize = true;
-            this.ErrorsRateLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.ErrorsRateLabel.Location = new System.Drawing.Point(228, 33);
-            this.ErrorsRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ErrorsRateLabel.Name = "ErrorsRateLabel";
-            this.ErrorsRateLabel.Size = new System.Drawing.Size(16, 18);
-            this.ErrorsRateLabel.TabIndex = 21;
-            this.ErrorsRateLabel.Text = "k";
             // 
             // label23
             // 
@@ -562,25 +530,70 @@
             this.label23.TabIndex = 20;
             this.label23.Text = "Коэффициент ошибок:";
             // 
-            // label9
+            // PackagesCountLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(151, 49);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 17);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "1:";
+            this.PackagesCountLabel.AutoSize = true;
+            this.PackagesCountLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.PackagesCountLabel.Location = new System.Drawing.Point(228, 101);
+            this.PackagesCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PackagesCountLabel.Name = "PackagesCountLabel";
+            this.PackagesCountLabel.Size = new System.Drawing.Size(16, 18);
+            this.PackagesCountLabel.TabIndex = 25;
+            this.PackagesCountLabel.Text = "k";
             // 
-            // label3
+            // ErrorsRateLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(292, 49);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 17);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "0:";
+            this.ErrorsRateLabel.AutoSize = true;
+            this.ErrorsRateLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.ErrorsRateLabel.Location = new System.Drawing.Point(228, 33);
+            this.ErrorsRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ErrorsRateLabel.Name = "ErrorsRateLabel";
+            this.ErrorsRateLabel.Size = new System.Drawing.Size(16, 18);
+            this.ErrorsRateLabel.TabIndex = 21;
+            this.ErrorsRateLabel.Text = "k";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label21.Location = new System.Drawing.Point(7, 101);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(160, 18);
+            this.label21.TabIndex = 24;
+            this.label21.Text = "Количество пакетов:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Consolas", 11F);
+            this.label22.Location = new System.Drawing.Point(6, 55);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(216, 18);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Коэффициент группирования:";
+            // 
+            // GroupingFactorLabel
+            // 
+            this.GroupingFactorLabel.AutoSize = true;
+            this.GroupingFactorLabel.Font = new System.Drawing.Font("Consolas", 11F);
+            this.GroupingFactorLabel.Location = new System.Drawing.Point(228, 55);
+            this.GroupingFactorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GroupingFactorLabel.Name = "GroupingFactorLabel";
+            this.GroupingFactorLabel.Size = new System.Drawing.Size(16, 18);
+            this.GroupingFactorLabel.TabIndex = 23;
+            this.GroupingFactorLabel.Text = "k";
+            // 
+            // ShowChartsButton
+            // 
+            this.ShowChartsButton.Location = new System.Drawing.Point(10, 130);
+            this.ShowChartsButton.Name = "ShowChartsButton";
+            this.ShowChartsButton.Size = new System.Drawing.Size(251, 33);
+            this.ShowChartsButton.TabIndex = 28;
+            this.ShowChartsButton.Text = "Показать графики";
+            this.ShowChartsButton.UseVisualStyleBackColor = true;
+            this.ShowChartsButton.Click += new System.EventHandler(this.ShowChartsButton_Click);
             // 
             // DiscreteChannel
             // 
@@ -599,7 +612,7 @@
             this.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DiscreteChannel";
-            this.Size = new System.Drawing.Size(1094, 523);
+            this.Size = new System.Drawing.Size(1094, 530);
             this.Load += new System.EventHandler(this.DiscreteChannel_Load);
             this.DataForSmithGroupBox.ResumeLayout(false);
             this.DataForSmithGroupBox.PerformLayout();
@@ -668,5 +681,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button ShowChartsButton;
     }
 }

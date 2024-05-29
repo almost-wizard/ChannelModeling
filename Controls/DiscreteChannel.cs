@@ -1,19 +1,17 @@
-﻿using ChannelModeling.InterferenceGenerator;
+﻿using ChannelModeling.Forms;
+using ChannelModeling.InterferenceGenerator;
 using ChannelModeling.Objects;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ChannelModeling.Controls
 {
     public partial class DiscreteChannel : UserControl
     {
+        private BitPackageSequence BitPackageSequence { get; set; }
+        private BitSequence BitSequence { get; set; }
+
         public DiscreteChannel()
         {
             InitializeComponent();
@@ -59,9 +57,9 @@ namespace ChannelModeling.Controls
             }
 
             bool packageLengthParsed = int.TryParse(PackageLengthTextBox.Text, out int packageLength);
-            if (!packageLengthParsed || packageLength <= 0)
+            if (!packageLengthParsed || packageLength <= 0 || packageLength > 60)
             {
-                MessageBox.Show("Введите корректное значение длины пакета", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введите корректное значение длины пакета из диапазона[1; 60]", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -77,17 +75,17 @@ namespace ChannelModeling.Controls
             }
             TransitionMatrixLabel.Visible = true;
 
-            BitSequence bitSequence = new BitSequence(generator.GenerateInterferences(sequenceLength));
-            BitPackageSequence bitPackageSequence = new BitPackageSequence(bitSequence.ToBitPackages(packageLength));
-            BitSequence packageStages = bitPackageSequence.GetPackageStages();
+            BitSequence = new BitSequence(generator.GenerateInterferences(sequenceLength));
+            BitPackageSequence = new BitPackageSequence(BitSequence.ToBitPackages(packageLength));
+            BitSequence packageStages = BitPackageSequence.GetPackageStages();
 
-            BitSequenceLabel.Text = bitSequence.ToString();
-            PackageBitSequensLabel.Text = bitPackageSequence.ToString();
+            BitSequenceLabel.Text = BitSequence.ToString();
+            PackageBitSequensLabel.Text = BitPackageSequence.ToString();
             PackageStagesLabel.Text = packageStages.ToString();
-            PackagesCountLabel.Text = bitPackageSequence.Value.Count.ToString();
-            ErrorDensityLabel.Text = Math.Round(bitPackageSequence.ErrorDensity, 2).ToString();
-            ErrorsRateLabel.Text = Math.Round(bitPackageSequence.ErrorsRate, 2).ToString();
-            GroupingFactorLabel.Text = Math.Round(bitPackageSequence.GroupingFactor, 2).ToString();
+            PackagesCountLabel.Text = BitPackageSequence.Value.Count.ToString();
+            ErrorDensityLabel.Text = Math.Round(BitPackageSequence.ErrorDensity, 2).ToString();
+            ErrorsRateLabel.Text = Math.Round(BitPackageSequence.ErrorsRate, 2).ToString();
+            GroupingFactorLabel.Text = Math.Round(BitPackageSequence.GroupingFactor, 2).ToString();
 
             ResultsGroupBox.Visible = true; 
         }
@@ -150,6 +148,14 @@ namespace ChannelModeling.Controls
                     return null;
             }
             return generator;
+        }
+
+        private void ShowChartsButton_Click(object sender, EventArgs e)
+        {
+            using (DistribuitionCharts chartsForm = new DistribuitionCharts(BitSequence, BitPackageSequence))
+            {
+                chartsForm.ShowDialog();
+            }
         }
     }
 }

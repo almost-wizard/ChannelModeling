@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PackageLengthTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SequenceLenthTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ErrorSequenceModelGroupBox = new System.Windows.Forms.GroupBox();
-            this.ErrorProbabilitiesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ErrorDensityLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -61,6 +58,7 @@
             this.SimulateErrorSequenceButton = new System.Windows.Forms.Button();
             this.InterferenceGeneratorComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ShowChartsButton = new System.Windows.Forms.Button();
             this.BinominalGroupBox = new System.Windows.Forms.GroupBox();
             this.EliotModelBroupBox = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -68,7 +66,6 @@
             this.ErrorSequensAVGLengthTextBox = new System.Windows.Forms.TextBox();
             this.ErrorFreeSequensAVGLengthTextBox = new System.Windows.Forms.TextBox();
             this.ErrorSequenceModelGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProbabilitiesChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -121,7 +118,7 @@
             this.ErrorSequenceModelGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ErrorSequenceModelGroupBox.Controls.Add(this.ErrorProbabilitiesChart);
+            this.ErrorSequenceModelGroupBox.Controls.Add(this.ShowChartsButton);
             this.ErrorSequenceModelGroupBox.Controls.Add(this.ErrorDensityLabel);
             this.ErrorSequenceModelGroupBox.Controls.Add(this.label12);
             this.ErrorSequenceModelGroupBox.Controls.Add(this.dataGridView1);
@@ -136,42 +133,11 @@
             this.ErrorSequenceModelGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ErrorSequenceModelGroupBox.Name = "ErrorSequenceModelGroupBox";
             this.ErrorSequenceModelGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ErrorSequenceModelGroupBox.Size = new System.Drawing.Size(790, 314);
+            this.ErrorSequenceModelGroupBox.Size = new System.Drawing.Size(790, 317);
             this.ErrorSequenceModelGroupBox.TabIndex = 15;
             this.ErrorSequenceModelGroupBox.TabStop = false;
             this.ErrorSequenceModelGroupBox.Text = "Результат";
             this.ErrorSequenceModelGroupBox.Visible = false;
-            // 
-            // ErrorProbabilitiesChart
-            // 
-            this.ErrorProbabilitiesChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ErrorProbabilitiesChart.BackColor = System.Drawing.Color.Transparent;
-            this.ErrorProbabilitiesChart.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea7.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea7.AxisX.InterlacedColor = System.Drawing.Color.Transparent;
-            chartArea7.AxisX.Interval = 10D;
-            chartArea7.AxisX.LabelStyle.Interval = 10D;
-            chartArea7.AxisX.Maximum = 10D;
-            chartArea7.AxisX.Minimum = 0D;
-            chartArea7.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea7.AxisY.Interval = 1D;
-            chartArea7.AxisY.LabelStyle.Interval = 1D;
-            chartArea7.AxisY.Maximum = 1D;
-            chartArea7.AxisY.MaximumAutoSize = 100F;
-            chartArea7.AxisY.Minimum = 0D;
-            chartArea7.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea7.Name = "ChartArea1";
-            this.ErrorProbabilitiesChart.ChartAreas.Add(chartArea7);
-            this.ErrorProbabilitiesChart.Location = new System.Drawing.Point(638, 181);
-            this.ErrorProbabilitiesChart.Name = "ErrorProbabilitiesChart";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Name = "Series1";
-            this.ErrorProbabilitiesChart.Series.Add(series7);
-            this.ErrorProbabilitiesChart.Size = new System.Drawing.Size(143, 104);
-            this.ErrorProbabilitiesChart.TabIndex = 20;
-            this.ErrorProbabilitiesChart.Text = "chart1";
             // 
             // ErrorDensityLabel
             // 
@@ -214,7 +180,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 72;
-            this.dataGridView1.Size = new System.Drawing.Size(345, 105);
+            this.dataGridView1.Size = new System.Drawing.Size(497, 130);
             this.dataGridView1.TabIndex = 17;
             // 
             // Package
@@ -440,7 +406,7 @@
             // SimulateErrorSequenceButton
             // 
             this.SimulateErrorSequenceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.SimulateErrorSequenceButton.Location = new System.Drawing.Point(303, 467);
+            this.SimulateErrorSequenceButton.Location = new System.Drawing.Point(303, 454);
             this.SimulateErrorSequenceButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SimulateErrorSequenceButton.Name = "SimulateErrorSequenceButton";
             this.SimulateErrorSequenceButton.Size = new System.Drawing.Size(200, 43);
@@ -469,6 +435,15 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Модель генерации ошибок:";
             // 
+            // ShowChartsButton
+            // 
+            this.ShowChartsButton.Location = new System.Drawing.Point(14, 277);
+            this.ShowChartsButton.Name = "ShowChartsButton";
+            this.ShowChartsButton.Size = new System.Drawing.Size(240, 34);
+            this.ShowChartsButton.TabIndex = 20;
+            this.ShowChartsButton.Text = "Показать графики";
+            this.ShowChartsButton.UseVisualStyleBackColor = true;
+            this.ShowChartsButton.Click += new System.EventHandler(this.ShowChartsButton_Click);
             // BinominalGroupBox
             // 
             this.BinominalGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -548,11 +523,10 @@
             this.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "ErrorSequence";
-            this.Size = new System.Drawing.Size(807, 513);
+            this.Size = new System.Drawing.Size(807, 500);
             this.Load += new System.EventHandler(this.ErrorSequenceImplementation_Load);
             this.ErrorSequenceModelGroupBox.ResumeLayout(false);
             this.ErrorSequenceModelGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProbabilitiesChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -601,7 +575,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ErrorsRate;
         private System.Windows.Forms.Label ErrorDensityLabel;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataVisualization.Charting.Chart ErrorProbabilitiesChart;
+        private System.Windows.Forms.Button ShowChartsButton;
         private System.Windows.Forms.GroupBox BinominalGroupBox;
         private System.Windows.Forms.GroupBox EliotModelBroupBox;
         private System.Windows.Forms.Label label10;

@@ -39,7 +39,7 @@ namespace ChannelModeling.Objects
             return new BitSequence(bits);
         }
         
-        // errors count in package => packages count
+        // errors count in package => it probability
         public Dictionary<int, double> GetErrorsProbabilitiesDistribution()
         {
             Dictionary<int, double> result = new Dictionary<int, double>(PackageSize + 1);
@@ -51,7 +51,6 @@ namespace ChannelModeling.Objects
             }
 
             return result;
-
         }
 
         private int GetTotalErrorBitsCount(List<BitPackage> value)
