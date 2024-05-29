@@ -17,30 +17,25 @@ namespace ChannelModeling.InterferenceGenerator
         private double P_01;
 
         private double BitErrorPropability;
-        private byte CurrentBit;
-        private double CheckValue;
 
         public GilbertInterference(double packageErrorPropability, double p_10, double p_01)
         {
             PackageErrorPropability = packageErrorPropability;
             P_10 = p_10;
             P_01 = p_01;
-            UpdateCheckValue();
             CulculateBitErrorPropability();
         }
 
         public override byte NextBit()
         {
-            if (CheckValue <= BitErrorPropability)
+            if (Randomizer.NextDouble() <= BitErrorPropability)
             {
-                CurrentBit = 1;
+                return (byte)1;
             }
-            else 
+            else
             {
-                CurrentBit = 0;
+                return (byte)0;
             }
-            UpdateCheckValue();
-            return CurrentBit;
         }
 
         public string GetTransitionMatrix()
@@ -58,11 +53,6 @@ namespace ChannelModeling.InterferenceGenerator
             tabler.RowTextAlign = TextAlign.CENTER;
 
             return String.Format("Матрица переходных состояний:\n{0}", tabler.ToString());
-        }
-
-        private void UpdateCheckValue()
-        {
-            CheckValue = Randomizer.NextDouble();
         }
 
         private void CulculateBitErrorPropability()

@@ -20,9 +20,7 @@ namespace ChannelModeling.InterferenceGenerator
         private double P_12;
         private double P_02;
 
-        private double CheckValue;
         private double BitErrorPropability;
-        private byte CurrentBit;
 
         public SmithInterference(double conditionZeroPropability, double conditionOnePropability, 
             double conditionTwoPropability, double p_21, double p_20, double p_12, double p_02)
@@ -35,22 +33,19 @@ namespace ChannelModeling.InterferenceGenerator
             P_12 = p_12;
             P_02 = p_02;
 
-            UpdateCheckValue();
             CulculateBitErrorPropability();
         }
 
         public override byte NextBit()
         {
-            if (CheckValue <= BitErrorPropability)
+            if (Randomizer.NextDouble() <= BitErrorPropability)
             {
-                CurrentBit = 1;
+                return (byte)1;
             }
             else
             {
-                CurrentBit = 0;
+                return (byte)0;
             }
-            UpdateCheckValue();
-            return CurrentBit;
         }
 
         public string GetTransitionMatrix()
@@ -64,11 +59,6 @@ namespace ChannelModeling.InterferenceGenerator
             tabler.RowTextAlign = TextAlign.CENTER;
 
             return String.Format("Матрица переходных состояний:\n{0}", tabler.ToString());
-        }
-
-        private void UpdateCheckValue()
-        {
-            CheckValue = Randomizer.NextDouble();
         }
 
         private void CulculateBitErrorPropability()
