@@ -60,8 +60,12 @@ namespace ChannelModeling.Controls
 
             generator = new InterferenceGenerator.MarkovInterference(errorProbabilty, groupCoefficient, blockLength);
 
-            BitSequence bitSequence = new BitSequence(generator.GenerateInterferences(blockCount));
-            ErrorsPackageSequence.Text = bitSequence.ToString();
+            BitSequence markovBitSequence = new BitSequence(generator.GenerateInterferences(blockCount));
+            ErrorsPackageSequence.Text = markovBitSequence.ToString();
+            IntervalSequenceLabel.Text = markovBitSequence.ToIntervalString();
+
+            ErrorsRateLabel.Text = markovBitSequence.ErrorsRate.ToString();
+            PackagesWithErrorsCountLabel.Text = markovBitSequence.ErrorsCount.ToString();
 
             TransitionMatrixLablel.Text = generator.GetTransitionMatrix();
 

@@ -55,15 +55,10 @@ namespace ChannelModeling.InterferenceGenerator
 
         public string GetTransitionMatrix()
         {
-            /*double roundedP10 = Math.Round(P_10, 2);
-            double calculatedP11 = 1 - roundedP10;
-            double roundedP01 = Math.Round(P_01, 2);
-            double calculatedP00 = 1 - roundedP01;*/
-
             String[] header = new string[4] { "Состояние", "2",  "1", "0" };
-            String[] row1 = new string[4] { "2", 0.ToString("F2"), P_21.ToString("F2"), P_20.ToString("F2") };
-            String[] row2 = new string[4] { "1", P_12.ToString("F2"), 0.ToString("F2"), 0.ToString("F2") };
-            String[] row3 = new string[4] { "0", P_02.ToString("F2"), 0.ToString("F2"), 0.ToString("F2") };
+            String[] row1 = new string[4] { "2", 0.ToString("F2"), string.Format("{0:0.##E+00}", P_21), string.Format("{0:0.##E+00}", P_20) };
+            String[] row2 = new string[4] { "1", string.Format("{0:0.##E+00}", P_12), 0.ToString("F2"), 0.ToString("F2") };
+            String[] row3 = new string[4] { "0", string.Format("{0:0.##E+00}", P_02), 0.ToString("F2"), 0.ToString("F2") };
 
             Tabler tabler = Tabler.Construct(4, 4).SetHeaderData(header).AddRowData(row1).AddRowData(row2).AddRowData(row3);
             tabler.RowTextAlign = TextAlign.CENTER;

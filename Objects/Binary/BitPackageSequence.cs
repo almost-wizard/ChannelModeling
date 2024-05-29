@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ChannelModeling.Objects
 {
-    public class BitPackageSequence : BinarySequence<BitPackage>
+    public class BitPackageSequence : Sequence<BitPackage>
     {
         private static readonly String PACKAGE_SEQUENCE_DEVIDER = " | ";
 
