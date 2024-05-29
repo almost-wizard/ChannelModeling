@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ChannelModeling.Objects
 {
-    public class BitSequence : BinarySequence<Bit>
+    public class BitSequence : Sequence<Bit>
     {
         public BitSequence(List<Bit> value) : base(value) { }
 

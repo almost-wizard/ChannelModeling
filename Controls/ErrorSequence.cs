@@ -19,8 +19,11 @@ namespace ChannelModeling.Components
 
         private void ErrorSequenceImplementation_Load(object sender, EventArgs e)
         {
+            BinominalGroupBox.Parent = this;
+            EliotModelBroupBox.Parent = this;
+
             // update combobox list with allowed interference models
-            InterferenceGeneratorComboBox.DataSource = new List<String> { "Идеальная", "Биномиальная" };
+            InterferenceGeneratorComboBox.DataSource = new List<String> { "Идеальная", "Биномиальная", "Элиота" };
             InterferenceGeneratorComboBox.SelectedIndex = 1;
 
             // disable selection
@@ -30,8 +33,8 @@ namespace ChannelModeling.Components
 
         private void InterferenceGeneratorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ErrorProbabilityTextBox.Visible = InterferenceGeneratorComboBox.SelectedIndex == 1;
-            ErrorProbabilityLabel.Visible = InterferenceGeneratorComboBox.SelectedIndex == 1;
+            BinominalGroupBox.Visible = InterferenceGeneratorComboBox.SelectedIndex == 1;
+            EliotModelBroupBox.Visible = InterferenceGeneratorComboBox.SelectedIndex == 2;
         }
 
         private void SimulateErrorSequenceButton_Click(object sender, EventArgs e)
@@ -105,6 +108,21 @@ namespace ChannelModeling.Components
                         MessageBox.Show("Введите корректное значение вероятности ошибки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return null;
                     }
+                    break;
+                case 2:
+                    bool averageErrorFreeSequenceLengthParsed = double.TryParse(ErrorFreeSequensAVGLengthTextBox.Text, out double averageErrorFreeSequenceLength);
+                    bool averageErrorSequenceLengthParsed = double.TryParse(ErrorSequensAVGLengthTextBox.Text, out double averageErrorSequenceLength);
+                    if (!averageErrorSequenceLengthParsed || !averageErrorFreeSequenceLengthParsed)
+                    {
+                        MessageBox.Show("Введите корректные значения параметров", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return null;
+                    }
+                    if (averageErrorFreeSequenceLength <= 0 || averageErrorSequenceLength <= 0 )
+                    {
+                        MessageBox.Show("Значения средних длин интервалов должны принимать значения больше 0 ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return null;
+                    }
+                    generator = new InterferenceGenerator.EliotInterference(averageErrorFreeSequenceLength, averageErrorSequenceLength);
                     break;
                 default:
                     MessageBox.Show("Выберите корректную модель генерации ошибок", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

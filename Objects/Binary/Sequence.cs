@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ChannelModeling.Objects
 {
-    public class BinarySequence<T> where T : IBinaryData
+    public class Sequence<T> where T : IBinaryData
     {
         private static readonly string INTERVAL_SEQUENCE_DEVIDER = ".";
 
@@ -16,8 +16,7 @@ namespace ChannelModeling.Objects
 
         public double ErrorsRate { get { return (double)ErrorsCount / Value.Count; } }
 
-
-        public BinarySequence(List<T> value)
+        public Sequence(List<T> value)
         {
             Value = value;
             ErrorsCount = GetErrorsCount(value);

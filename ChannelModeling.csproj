@@ -62,6 +62,7 @@
     <Compile Include="Forms\DistribuitionCharts.Designer.cs">
       <DependentUpon>DistribuitionCharts.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterferenceGenerator\EliotInterference.cs" />
     <Compile Include="InterferenceGenerator\GilbertInterference.cs" />
     <Compile Include="InterferenceGenerator\MarkovInterference.cs" />
     <Compile Include="Controls\ErrorSequence.Designer.cs">
@@ -96,7 +97,7 @@
     <Compile Include="Objects\Binary\Data\IBinaryData.cs" />
     <Compile Include="Objects\Binary\Data\BitPackage.cs" />
     <Compile Include="Objects\Binary\BitPackageSequence.cs" />
-    <Compile Include="Objects\Binary\BinarySequence.cs" />
+    <Compile Include="Objects\Binary\Sequence.cs" />
     <Compile Include="Objects\Tabler\Element.cs" />
     <Compile Include="Objects\Tabler\Tabler.cs" />
     <Compile Include="Objects\Tabler\TextAlign.cs" />

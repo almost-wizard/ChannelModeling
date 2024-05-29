@@ -20,9 +20,7 @@ namespace ChannelModeling.InterferenceGenerator
         private double P_12;
         private double P_02;
 
-        private double CheckValue;
         private double BitErrorPropability;
-        private byte CurrentBit;
 
         public SmithInterference(double conditionZeroPropability, double conditionOnePropability, 
             double conditionTwoPropability, double p_21, double p_20, double p_12, double p_02)
@@ -35,45 +33,32 @@ namespace ChannelModeling.InterferenceGenerator
             P_12 = p_12;
             P_02 = p_02;
 
-            UpdateCheckValue();
             CulculateBitErrorPropability();
         }
 
         public override byte NextBit()
         {
-            if (CheckValue <= BitErrorPropability)
+            if (Randomizer.NextDouble() <= BitErrorPropability)
             {
-                CurrentBit = 1;
+                return (byte)1;
             }
             else
             {
-                CurrentBit = 0;
+                return (byte)0;
             }
-            UpdateCheckValue();
-            return CurrentBit;
         }
 
         public string GetTransitionMatrix()
         {
-            /*double roundedP10 = Math.Round(P_10, 2);
-            double calculatedP11 = 1 - roundedP10;
-            double roundedP01 = Math.Round(P_01, 2);
-            double calculatedP00 = 1 - roundedP01;*/
-
             String[] header = new string[4] { "Состояние", "2",  "1", "0" };
-            String[] row1 = new string[4] { "2", 0.ToString("F2"), P_21.ToString("F2"), P_20.ToString("F2") };
-            String[] row2 = new string[4] { "1", P_12.ToString("F2"), 0.ToString("F2"), 0.ToString("F2") };
-            String[] row3 = new string[4] { "0", P_02.ToString("F2"), 0.ToString("F2"), 0.ToString("F2") };
+            String[] row1 = new string[4] { "2", "-", string.Format("{0:0.##E+00}", P_21), string.Format("{0:0.##E+00}", P_20) };
+            String[] row2 = new string[4] { "1", string.Format("{0:0.##E+00}", P_12), "-", "-" };
+            String[] row3 = new string[4] { "0", string.Format("{0:0.##E+00}", P_02), "-", "-" };
 
             Tabler tabler = Tabler.Construct(4, 4).SetHeaderData(header).AddRowData(row1).AddRowData(row2).AddRowData(row3);
             tabler.RowTextAlign = TextAlign.CENTER;
 
             return String.Format("Матрица переходных состояний:\n{0}", tabler.ToString());
-        }
-
-        private void UpdateCheckValue()
-        {
-            CheckValue = Randomizer.NextDouble();
         }
 
         private void CulculateBitErrorPropability()
