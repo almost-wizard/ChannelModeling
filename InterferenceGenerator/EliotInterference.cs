@@ -23,27 +23,19 @@ namespace ChannelModeling.InterferenceGenerator
         {
             AverageErrorFreeSequenceLength = averageErrorFreeSequenceLength;
             AverageErrorSequenceLength = averageErrorSequenceLength;
-            UpdateCheckValue();
             CulculateErrorPropability();
         }
 
         public override byte NextBit()
         {
-            if (CheckValue <= ErrorPropability)
+            if (Randomizer.NextDouble() <= ErrorPropability)
             {
-                CurrentBit = 1;
+                return (byte)1;
             }
             else
             {
-                CurrentBit = 0;
+                return (byte)0;
             }
-            UpdateCheckValue();
-            return CurrentBit;
-        }
-
-        private void UpdateCheckValue()
-        {
-            CheckValue = Randomizer.NextDouble();
         }
 
         private void CulculateErrorPropability()
