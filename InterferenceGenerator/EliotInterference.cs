@@ -16,9 +16,6 @@ namespace ChannelModeling.InterferenceGenerator
         private double AverageErrorFreeSequenceLength;
         private double AverageErrorSequenceLength;
 
-        private byte CurrentBit;
-        private double CheckValue;
-
         public EliotInterference(double averageErrorFreeSequenceLength, double averageErrorSequenceLength)
         {
             AverageErrorFreeSequenceLength = averageErrorFreeSequenceLength;
