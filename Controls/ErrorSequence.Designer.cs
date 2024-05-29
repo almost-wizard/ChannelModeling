@@ -33,6 +33,7 @@
             this.SequenceLenthTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ErrorSequenceModelGroupBox = new System.Windows.Forms.GroupBox();
+            this.ShowChartsButton = new System.Windows.Forms.Button();
             this.ErrorDensityLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -58,13 +59,12 @@
             this.SimulateErrorSequenceButton = new System.Windows.Forms.Button();
             this.InterferenceGeneratorComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ShowChartsButton = new System.Windows.Forms.Button();
             this.BinominalGroupBox = new System.Windows.Forms.GroupBox();
             this.EliotModelBroupBox = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.ErrorSequensAVGLengthTextBox = new System.Windows.Forms.TextBox();
             this.ErrorFreeSequensAVGLengthTextBox = new System.Windows.Forms.TextBox();
+            this.ErrorSequensAVGLengthTextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.ErrorSequenceModelGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -80,7 +80,7 @@
             this.PackageLengthTextBox.Location = new System.Drawing.Point(212, 76);
             this.PackageLengthTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PackageLengthTextBox.Name = "PackageLengthTextBox";
-            this.PackageLengthTextBox.Size = new System.Drawing.Size(151, 31);
+            this.PackageLengthTextBox.Size = new System.Drawing.Size(151, 23);
             this.PackageLengthTextBox.TabIndex = 19;
             this.PackageLengthTextBox.Text = "10";
             // 
@@ -90,7 +90,7 @@
             this.label4.Location = new System.Drawing.Point(4, 78);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 23);
+            this.label4.Size = new System.Drawing.Size(112, 17);
             this.label4.TabIndex = 18;
             this.label4.Text = "Длина пакета:";
             // 
@@ -99,7 +99,7 @@
             this.SequenceLenthTextBox.Location = new System.Drawing.Point(212, 41);
             this.SequenceLenthTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SequenceLenthTextBox.Name = "SequenceLenthTextBox";
-            this.SequenceLenthTextBox.Size = new System.Drawing.Size(151, 31);
+            this.SequenceLenthTextBox.Size = new System.Drawing.Size(151, 23);
             this.SequenceLenthTextBox.TabIndex = 17;
             this.SequenceLenthTextBox.Text = "100";
             // 
@@ -109,7 +109,7 @@
             this.label5.Location = new System.Drawing.Point(4, 43);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(285, 23);
+            this.label5.Size = new System.Drawing.Size(208, 17);
             this.label5.TabIndex = 16;
             this.label5.Text = "Длина последовательности:";
             // 
@@ -139,6 +139,16 @@
             this.ErrorSequenceModelGroupBox.Text = "Результат";
             this.ErrorSequenceModelGroupBox.Visible = false;
             // 
+            // ShowChartsButton
+            // 
+            this.ShowChartsButton.Location = new System.Drawing.Point(14, 277);
+            this.ShowChartsButton.Name = "ShowChartsButton";
+            this.ShowChartsButton.Size = new System.Drawing.Size(240, 34);
+            this.ShowChartsButton.TabIndex = 20;
+            this.ShowChartsButton.Text = "Показать графики";
+            this.ShowChartsButton.UseVisualStyleBackColor = true;
+            this.ShowChartsButton.Click += new System.EventHandler(this.ShowChartsButton_Click);
+            // 
             // ErrorDensityLabel
             // 
             this.ErrorDensityLabel.AutoSize = true;
@@ -146,7 +156,7 @@
             this.ErrorDensityLabel.Location = new System.Drawing.Point(231, 219);
             this.ErrorDensityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ErrorDensityLabel.Name = "ErrorDensityLabel";
-            this.ErrorDensityLabel.Size = new System.Drawing.Size(24, 26);
+            this.ErrorDensityLabel.Size = new System.Drawing.Size(16, 18);
             this.ErrorDensityLabel.TabIndex = 19;
             this.ErrorDensityLabel.Text = "k";
             // 
@@ -157,7 +167,7 @@
             this.label12.Location = new System.Drawing.Point(11, 219);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(216, 26);
+            this.label12.Size = new System.Drawing.Size(144, 18);
             this.label12.TabIndex = 18;
             this.label12.Text = "Плотность ошибок:";
             // 
@@ -206,7 +216,7 @@
             this.PackagesCountLabel.Location = new System.Drawing.Point(231, 241);
             this.PackagesCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PackagesCountLabel.Name = "PackagesCountLabel";
-            this.PackagesCountLabel.Size = new System.Drawing.Size(24, 26);
+            this.PackagesCountLabel.Size = new System.Drawing.Size(16, 18);
             this.PackagesCountLabel.TabIndex = 16;
             this.PackagesCountLabel.Text = "k";
             // 
@@ -217,7 +227,7 @@
             this.label11.Location = new System.Drawing.Point(11, 241);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(240, 26);
+            this.label11.Size = new System.Drawing.Size(160, 18);
             this.label11.TabIndex = 15;
             this.label11.Text = "Количество пакетов:";
             // 
@@ -228,7 +238,7 @@
             this.GroupingFactorLabel.Location = new System.Drawing.Point(231, 198);
             this.GroupingFactorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GroupingFactorLabel.Name = "GroupingFactorLabel";
-            this.GroupingFactorLabel.Size = new System.Drawing.Size(24, 26);
+            this.GroupingFactorLabel.Size = new System.Drawing.Size(16, 18);
             this.GroupingFactorLabel.TabIndex = 14;
             this.GroupingFactorLabel.Text = "k";
             // 
@@ -239,7 +249,7 @@
             this.label9.Location = new System.Drawing.Point(11, 198);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(324, 26);
+            this.label9.Size = new System.Drawing.Size(216, 18);
             this.label9.TabIndex = 13;
             this.label9.Text = "Коэффициент группирования:";
             // 
@@ -250,7 +260,7 @@
             this.ErrorsRateLabel.Location = new System.Drawing.Point(231, 178);
             this.ErrorsRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ErrorsRateLabel.Name = "ErrorsRateLabel";
-            this.ErrorsRateLabel.Size = new System.Drawing.Size(24, 26);
+            this.ErrorsRateLabel.Size = new System.Drawing.Size(16, 18);
             this.ErrorsRateLabel.TabIndex = 12;
             this.ErrorsRateLabel.Text = "k";
             // 
@@ -261,7 +271,7 @@
             this.label7.Location = new System.Drawing.Point(11, 178);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(240, 26);
+            this.label7.Size = new System.Drawing.Size(160, 18);
             this.label7.TabIndex = 9;
             this.label7.Text = "Коэффициент ошибок:";
             // 
@@ -301,7 +311,7 @@
             this.label8.Location = new System.Drawing.Point(4, 94);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(336, 26);
+            this.label8.Size = new System.Drawing.Size(224, 18);
             this.label8.TabIndex = 9;
             this.label8.Text = "Интервальное представление:";
             // 
@@ -312,7 +322,7 @@
             this.label6.Location = new System.Drawing.Point(4, 66);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 26);
+            this.label6.Size = new System.Drawing.Size(96, 18);
             this.label6.TabIndex = 8;
             this.label6.Text = "По пакетам:";
             // 
@@ -323,7 +333,7 @@
             this.label3.Location = new System.Drawing.Point(4, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(324, 26);
+            this.label3.Size = new System.Drawing.Size(216, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Последовательность ошибок:";
             // 
@@ -334,7 +344,7 @@
             this.label2.Location = new System.Drawing.Point(4, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(336, 26);
+            this.label2.Size = new System.Drawing.Size(224, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "Интервальное представление:";
             // 
@@ -345,7 +355,7 @@
             this.PackageIntervalSequenceLabel.Location = new System.Drawing.Point(12, 94);
             this.PackageIntervalSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PackageIntervalSequenceLabel.Name = "PackageIntervalSequenceLabel";
-            this.PackageIntervalSequenceLabel.Size = new System.Drawing.Size(108, 26);
+            this.PackageIntervalSequenceLabel.Size = new System.Drawing.Size(72, 18);
             this.PackageIntervalSequenceLabel.TabIndex = 12;
             this.PackageIntervalSequenceLabel.Text = "sequence";
             // 
@@ -356,7 +366,7 @@
             this.PackageSequenceLabel.Location = new System.Drawing.Point(12, 66);
             this.PackageSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PackageSequenceLabel.Name = "PackageSequenceLabel";
-            this.PackageSequenceLabel.Size = new System.Drawing.Size(108, 26);
+            this.PackageSequenceLabel.Size = new System.Drawing.Size(72, 18);
             this.PackageSequenceLabel.TabIndex = 11;
             this.PackageSequenceLabel.Text = "sequence";
             // 
@@ -367,7 +377,7 @@
             this.BitsSequenceLabel.Location = new System.Drawing.Point(12, 8);
             this.BitsSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BitsSequenceLabel.Name = "BitsSequenceLabel";
-            this.BitsSequenceLabel.Size = new System.Drawing.Size(108, 26);
+            this.BitsSequenceLabel.Size = new System.Drawing.Size(72, 18);
             this.BitsSequenceLabel.TabIndex = 9;
             this.BitsSequenceLabel.Text = "sequence";
             // 
@@ -378,17 +388,17 @@
             this.IntervalSequenceLabel.Location = new System.Drawing.Point(12, 37);
             this.IntervalSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IntervalSequenceLabel.Name = "IntervalSequenceLabel";
-            this.IntervalSequenceLabel.Size = new System.Drawing.Size(108, 26);
+            this.IntervalSequenceLabel.Size = new System.Drawing.Size(72, 18);
             this.IntervalSequenceLabel.TabIndex = 10;
             this.IntervalSequenceLabel.Text = "sequence";
             // 
             // ErrorProbabilityTextBox
             // 
             this.ErrorProbabilityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ErrorProbabilityTextBox.Location = new System.Drawing.Point(246, 13);
+            this.ErrorProbabilityTextBox.Location = new System.Drawing.Point(274, 13);
             this.ErrorProbabilityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ErrorProbabilityTextBox.Name = "ErrorProbabilityTextBox";
-            this.ErrorProbabilityTextBox.Size = new System.Drawing.Size(121, 31);
+            this.ErrorProbabilityTextBox.Size = new System.Drawing.Size(93, 23);
             this.ErrorProbabilityTextBox.TabIndex = 14;
             this.ErrorProbabilityTextBox.Text = "0,5";
             // 
@@ -399,7 +409,7 @@
             this.ErrorProbabilityLabel.Location = new System.Drawing.Point(7, 16);
             this.ErrorProbabilityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ErrorProbabilityLabel.Name = "ErrorProbabilityLabel";
-            this.ErrorProbabilityLabel.Size = new System.Drawing.Size(329, 23);
+            this.ErrorProbabilityLabel.Size = new System.Drawing.Size(240, 17);
             this.ErrorProbabilityLabel.TabIndex = 13;
             this.ErrorProbabilityLabel.Text = "Вероятность появления ошибки:";
             // 
@@ -421,7 +431,7 @@
             this.InterferenceGeneratorComboBox.Location = new System.Drawing.Point(212, 6);
             this.InterferenceGeneratorComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.InterferenceGeneratorComboBox.Name = "InterferenceGeneratorComboBox";
-            this.InterferenceGeneratorComboBox.Size = new System.Drawing.Size(151, 31);
+            this.InterferenceGeneratorComboBox.Size = new System.Drawing.Size(151, 23);
             this.InterferenceGeneratorComboBox.TabIndex = 11;
             this.InterferenceGeneratorComboBox.SelectedIndexChanged += new System.EventHandler(this.InterferenceGeneratorComboBox_SelectedIndexChanged);
             // 
@@ -431,19 +441,10 @@
             this.label1.Location = new System.Drawing.Point(4, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 23);
+            this.label1.Size = new System.Drawing.Size(200, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Модель генерации ошибок:";
             // 
-            // ShowChartsButton
-            // 
-            this.ShowChartsButton.Location = new System.Drawing.Point(14, 277);
-            this.ShowChartsButton.Name = "ShowChartsButton";
-            this.ShowChartsButton.Size = new System.Drawing.Size(240, 34);
-            this.ShowChartsButton.TabIndex = 20;
-            this.ShowChartsButton.Text = "Показать графики";
-            this.ShowChartsButton.UseVisualStyleBackColor = true;
-            this.ShowChartsButton.Click += new System.EventHandler(this.ShowChartsButton_Click);
             // BinominalGroupBox
             // 
             this.BinominalGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -462,21 +463,29 @@
             this.EliotModelBroupBox.Controls.Add(this.ErrorSequensAVGLengthTextBox);
             this.EliotModelBroupBox.Controls.Add(this.label13);
             this.EliotModelBroupBox.Controls.Add(this.label10);
-            this.EliotModelBroupBox.Location = new System.Drawing.Point(415, 9);
+            this.EliotModelBroupBox.Location = new System.Drawing.Point(415, 6);
             this.EliotModelBroupBox.Name = "EliotModelBroupBox";
             this.EliotModelBroupBox.Size = new System.Drawing.Size(383, 95);
             this.EliotModelBroupBox.TabIndex = 15;
             this.EliotModelBroupBox.TabStop = false;
             // 
-            // label10
+            // ErrorFreeSequensAVGLengthTextBox
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(373, 23);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Средняя длина безошибочной серии:";
+            this.ErrorFreeSequensAVGLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ErrorFreeSequensAVGLengthTextBox.Location = new System.Drawing.Point(283, 12);
+            this.ErrorFreeSequensAVGLengthTextBox.Name = "ErrorFreeSequensAVGLengthTextBox";
+            this.ErrorFreeSequensAVGLengthTextBox.Size = new System.Drawing.Size(93, 23);
+            this.ErrorFreeSequensAVGLengthTextBox.TabIndex = 3;
+            this.ErrorFreeSequensAVGLengthTextBox.Text = "5";
+            // 
+            // ErrorSequensAVGLengthTextBox
+            // 
+            this.ErrorSequensAVGLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ErrorSequensAVGLengthTextBox.Location = new System.Drawing.Point(283, 41);
+            this.ErrorSequensAVGLengthTextBox.Name = "ErrorSequensAVGLengthTextBox";
+            this.ErrorSequensAVGLengthTextBox.Size = new System.Drawing.Size(93, 23);
+            this.ErrorSequensAVGLengthTextBox.TabIndex = 2;
+            this.ErrorSequensAVGLengthTextBox.Text = "5";
             // 
             // label13
             // 
@@ -484,31 +493,23 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(5, 44);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(307, 23);
+            this.label13.Size = new System.Drawing.Size(224, 17);
             this.label13.TabIndex = 1;
             this.label13.Text = "Средняя длина серии ошибок:";
             // 
-            // ErrorSequensAVGLengthTextBox
+            // label10
             // 
-            this.ErrorSequensAVGLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ErrorSequensAVGLengthTextBox.Location = new System.Drawing.Point(276, 41);
-            this.ErrorSequensAVGLengthTextBox.Name = "ErrorSequensAVGLengthTextBox";
-            this.ErrorSequensAVGLengthTextBox.Size = new System.Drawing.Size(100, 31);
-            this.ErrorSequensAVGLengthTextBox.TabIndex = 2;
-            this.ErrorSequensAVGLengthTextBox.Text = "5";
-            // 
-            // ErrorFreeSequensAVGLengthTextBox
-            // 
-            this.ErrorFreeSequensAVGLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ErrorFreeSequensAVGLengthTextBox.Location = new System.Drawing.Point(276, 12);
-            this.ErrorFreeSequensAVGLengthTextBox.Name = "ErrorFreeSequensAVGLengthTextBox";
-            this.ErrorFreeSequensAVGLengthTextBox.Size = new System.Drawing.Size(100, 31);
-            this.ErrorFreeSequensAVGLengthTextBox.TabIndex = 3;
-            this.ErrorFreeSequensAVGLengthTextBox.Text = "5";
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(272, 17);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Средняя длина безошибочной серии:";
             // 
             // ErrorSequence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.EliotModelBroupBox);
             this.Controls.Add(this.BinominalGroupBox);

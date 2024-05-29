@@ -49,6 +49,7 @@
             this.ErrorsPackageSequence = new System.Windows.Forms.Label();
             this.SimulateTwoLevelChannelButton = new System.Windows.Forms.Button();
             this.DataChannelComboBox = new System.Windows.Forms.ComboBox();
+            this.ShowChartsButton = new System.Windows.Forms.Button();
             this.BlockErrorsSequanceGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -153,6 +154,7 @@
             this.BlockErrorsSequanceGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.BlockErrorsSequanceGroupBox.Controls.Add(this.ShowChartsButton);
             this.BlockErrorsSequanceGroupBox.Controls.Add(this.label23);
             this.BlockErrorsSequanceGroupBox.Controls.Add(this.PackagesWithErrorsCountLabel);
             this.BlockErrorsSequanceGroupBox.Controls.Add(this.ErrorsRateLabel);
@@ -172,10 +174,10 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Consolas", 11F);
-            this.label23.Location = new System.Drawing.Point(4, 112);
+            this.label23.Location = new System.Drawing.Point(13, 112);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(240, 26);
+            this.label23.Size = new System.Drawing.Size(160, 18);
             this.label23.TabIndex = 28;
             this.label23.Text = "Коэффициент ошибок:";
             // 
@@ -183,10 +185,10 @@
             // 
             this.PackagesWithErrorsCountLabel.AutoSize = true;
             this.PackagesWithErrorsCountLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.PackagesWithErrorsCountLabel.Location = new System.Drawing.Point(247, 138);
+            this.PackagesWithErrorsCountLabel.Location = new System.Drawing.Point(256, 138);
             this.PackagesWithErrorsCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PackagesWithErrorsCountLabel.Name = "PackagesWithErrorsCountLabel";
-            this.PackagesWithErrorsCountLabel.Size = new System.Drawing.Size(24, 26);
+            this.PackagesWithErrorsCountLabel.Size = new System.Drawing.Size(16, 18);
             this.PackagesWithErrorsCountLabel.TabIndex = 33;
             this.PackagesWithErrorsCountLabel.Text = "k";
             // 
@@ -194,10 +196,10 @@
             // 
             this.ErrorsRateLabel.AutoSize = true;
             this.ErrorsRateLabel.Font = new System.Drawing.Font("Consolas", 11F);
-            this.ErrorsRateLabel.Location = new System.Drawing.Point(247, 112);
+            this.ErrorsRateLabel.Location = new System.Drawing.Point(256, 112);
             this.ErrorsRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ErrorsRateLabel.Name = "ErrorsRateLabel";
-            this.ErrorsRateLabel.Size = new System.Drawing.Size(24, 26);
+            this.ErrorsRateLabel.Size = new System.Drawing.Size(16, 18);
             this.ErrorsRateLabel.TabIndex = 29;
             this.ErrorsRateLabel.Text = "k";
             // 
@@ -205,10 +207,10 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Consolas", 11F);
-            this.label21.Location = new System.Drawing.Point(8, 138);
+            this.label21.Location = new System.Drawing.Point(13, 138);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(360, 26);
+            this.label21.Size = new System.Drawing.Size(240, 18);
             this.label21.TabIndex = 32;
             this.label21.Text = "Количество ошибочных пакетов:";
             // 
@@ -232,7 +234,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.IntervalSequenceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.ErrorsPackageSequence);
             this.splitContainer1.Size = new System.Drawing.Size(762, 76);
-            this.splitContainer1.SplitterDistance = 221;
+            this.splitContainer1.SplitterDistance = 252;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -241,7 +243,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(4, 37);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(307, 23);
+            this.label6.Size = new System.Drawing.Size(224, 17);
             this.label6.TabIndex = 1;
             this.label6.Text = "Интервальное представление:";
             // 
@@ -261,7 +263,7 @@
             this.IntervalSequenceLabel.Location = new System.Drawing.Point(4, 37);
             this.IntervalSequenceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IntervalSequenceLabel.Name = "IntervalSequenceLabel";
-            this.IntervalSequenceLabel.Size = new System.Drawing.Size(98, 23);
+            this.IntervalSequenceLabel.Size = new System.Drawing.Size(72, 17);
             this.IntervalSequenceLabel.TabIndex = 1;
             this.IntervalSequenceLabel.Text = "sequence";
             // 
@@ -295,6 +297,16 @@
             this.DataChannelComboBox.Size = new System.Drawing.Size(422, 23);
             this.DataChannelComboBox.TabIndex = 11;
             this.DataChannelComboBox.SelectedIndexChanged += new System.EventHandler(this.DataChannelComboBox_SelectedIndexChanged);
+            // 
+            // ShowChartsButton
+            // 
+            this.ShowChartsButton.Location = new System.Drawing.Point(14, 166);
+            this.ShowChartsButton.Name = "ShowChartsButton";
+            this.ShowChartsButton.Size = new System.Drawing.Size(239, 34);
+            this.ShowChartsButton.TabIndex = 34;
+            this.ShowChartsButton.Text = "Показать графики";
+            this.ShowChartsButton.UseVisualStyleBackColor = true;
+            this.ShowChartsButton.Click += new System.EventHandler(this.ShowChartsButton_Click);
             // 
             // DataChannel
             // 
@@ -353,5 +365,6 @@
         private System.Windows.Forms.Label PackagesWithErrorsCountLabel;
         private System.Windows.Forms.Label ErrorsRateLabel;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button ShowChartsButton;
     }
 }

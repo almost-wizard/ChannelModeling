@@ -1,4 +1,5 @@
-﻿using ChannelModeling.Objects;
+﻿using ChannelModeling.Forms;
+using ChannelModeling.Objects;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -7,6 +8,8 @@ namespace ChannelModeling.Controls
 {
     public partial class DataChannel : UserControl
     {
+        BitSequence MarkovBitSequence { get; set; }
+
         public DataChannel()
         {
             InitializeComponent();
@@ -14,7 +17,7 @@ namespace ChannelModeling.Controls
 
         private void DataChannel_Load(object sender, EventArgs e)
         {
-            DataChannelComboBox.DataSource = new List<String> { "Кабельный телефонный выделеный", "Кабельный телефонный коммутируемый", 
+            DataChannelComboBox.DataSource = new List<String> { "Кабельный телефонный выделеный", "Кабельный телефонный коммутируемый",
                 "Радиорелейный телефонный", "Тропосферный телефонный", "Радиотелеграфный КВ-канал", "Пользовательские данные"};
             DataChannelComboBox.SelectedIndex = 4;
         }
@@ -60,12 +63,12 @@ namespace ChannelModeling.Controls
 
             generator = new InterferenceGenerator.MarkovInterference(errorProbabilty, groupCoefficient, blockLength);
 
-            BitSequence markovBitSequence = new BitSequence(generator.GenerateInterferences(blockCount));
-            ErrorsPackageSequence.Text = markovBitSequence.ToString();
-            IntervalSequenceLabel.Text = markovBitSequence.ToIntervalString();
+            MarkovBitSequence = new BitSequence(generator.GenerateInterferences(blockCount));
+            ErrorsPackageSequence.Text = MarkovBitSequence.ToString();
+            IntervalSequenceLabel.Text = MarkovBitSequence.ToIntervalString();
 
-            ErrorsRateLabel.Text = markovBitSequence.ErrorsRate.ToString();
-            PackagesWithErrorsCountLabel.Text = markovBitSequence.ErrorsCount.ToString();
+            ErrorsRateLabel.Text = MarkovBitSequence.ErrorsRate.ToString();
+            PackagesWithErrorsCountLabel.Text = MarkovBitSequence.ErrorsCount.ToString();
 
             TransitionMatrixLablel.Text = generator.GetTransitionMatrix();
 
@@ -117,6 +120,14 @@ namespace ChannelModeling.Controls
         private void ErrorProbabilityTextBox_TextChanged(object sender, EventArgs e)
         {
             DataChannelComboBox.SelectedIndex = 5;
+        }
+
+        private void ShowChartsButton_Click(object sender, EventArgs e)
+        {
+            using (DistribuitionCharts chartsForm = new DistribuitionCharts(MarkovBitSequence))
+            {
+                chartsForm.ShowDialog();
+            }
         }
     }
 }
